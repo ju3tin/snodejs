@@ -39,19 +39,16 @@ app.use(
 
 
 const db = require("./app/models");
-
-
-
 const Role = db.role;
 
 db.mongoose
-  .connect(`mongodb+srv://ju3tin:grierson1979@cluster0.yudvymo.mongodb.net/?retryWrites=true&w=majority`, {
+  .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
   .then(() => {
     console.log("Successfully connect to MongoDB.");
-   // initial();
+    initial();
   })
   .catch(err => {
     console.error("Connection error", err);
