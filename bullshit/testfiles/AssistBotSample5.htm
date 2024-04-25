@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>AssistBot | Demo</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="AssistBot.css" type="text/css">
+		<style>
+			body{padding:0;margin:0;background-color:white;}
+			canvas{float:left;border:0;padding:0;margin:0;display:block}
+			.botui-app-container3D{position:fixed;top:0;height:100%;left:424px;right:0;z-index:9999;background-color:white}
+			.botui-scroller3D{display:block;width:100%;height:100%;overflow-y:hidden}
+			.demo-starter{position:fixed;left:0;right:0;top:0;bottom:0;background-color:silver;z-index:10000}
+			.demo-starter-label{position:fixed;top:0;bottom:0;left:0;right:0;margin:auto auto;width:auto;height:100px;text-align:center;font-family:Arial;font-size:36px;font-weight:bold;cursor:default}
+			.pleasewait_container{position:fixed;left:0;top:0;right:0;bottom:0;background-color:black;z-index:99999}
+			.pleasewait{position:fixed;width:64px;height:64px;left:0;right:0;top:0;bottom:0;margin:auto auto;border:0;z-index:9}
+			.lds-spinner{color:white;display:inline-block;position:relative;width:64px;height:64px}
+			.lds-spinner div{transform-origin:32px 32px;animation:lds-spinner 1.2s linear infinite}
+			.lds-spinner div:after{content:" ";display:block;position:absolute;top:3px;left:29px;width:5px;height:14px;border-radius:20%;background:white}
+			.lds-spinner div:nth-child(1){transform:rotate(0deg);animation-delay:-1.1s}
+			.lds-spinner div:nth-child(2){transform:rotate(30deg);animation-delay:-1s}
+			.lds-spinner div:nth-child(3){transform:rotate(60deg);animation-delay:-0.9s}
+			.lds-spinner div:nth-child(4){transform:rotate(90deg);animation-delay:-0.8s}
+			.lds-spinner div:nth-child(5){transform:rotate(120deg);animation-delay:-0.7s}
+			.lds-spinner div:nth-child(6){transform:rotate(150deg);animation-delay:-0.6s}
+			.lds-spinner div:nth-child(7){transform:rotate(180deg);animation-delay:-0.5s}
+			.lds-spinner div:nth-child(8){transform:rotate(210deg);animation-delay:-0.4s}
+			.lds-spinner div:nth-child(9){transform:rotate(240deg);animation-delay:-0.3s}
+			.lds-spinner div:nth-child(10){transform:rotate(270deg);animation-delay:-0.2s}
+			.lds-spinner div:nth-child(11){transform:rotate(300deg);animation-delay:-0.1s}
+			.lds-spinner div:nth-child(12){transform:rotate(330deg);animation-delay:0s}
+			@keyframes lds-spinner{0%{opacity:1}100%{opacity:0}}
+
+			@media only screen and (orientation:portrait)
+				{
+				.botui-app-container3D{background-color:red;position:fixed;top:unset;bottom:0;height:230px !important;left:0 !important;right:0;z-index:9999;background-color:white}
+				.demo-starter-label{font-size:30px}
+				}
+
+		</style>
+	</head>
+	<body>
+		<canvas id="threeCanvas"></canvas>
+		<div class="botui-app-container3D" id="AssistBot">
+			<div class="botui-scroller3D" id="botui-scroller">
+				<bot-ui></bot-ui>
+			</div>
+		</div>
+		<div class="demo-starter"><span class="demo-starter-label"></span></div>
+		<div class="pleasewait_container"><div class="pleasewait" id="loading"><div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div></div>
+
+		<script src="AssistBotSample5.js"></script>
+		<script src="AssistBot.min.js"></script>
+		<script>
+
+			var homeBot = BotUI("AssistBot");
+
+			var userLanguage = window.navigator.userLanguage || window.navigator.language;
+
+			var textStart = "";
+			var textTitle = "";
+			var textWelcome = "";
+			var textInputName = "";
+			var textInputNameRetry = "";
+			var textInputEmail = "";
+			var textInputEmailRetry = "";
+			var textInputMessage = "";
+			var textInputMessageRetry = "";
+			var textTypePress = "";
+			var textTypeWork = "";
+			var textTypeContact = "";
+			var textThankYou = "";
+			var textError = "";
+			var textPlaceHolder = "";
+			var textSend = "";
+
+			var contactType = "";
+			var contactName = "";
+			var contactEmail = "";
+			var contactMessage = "";
+
+			if (userLanguage.substring(0,2)=="es")
+				{
+				textStart = "HAGA CLICK PARA<br/>COMENZAR LA DEMO";
+				textTitle = "Asistente virtual";
+				textWelcome = "Hola, soy la asistente virtual de este sitio Web. &iquest;Cu&aacute;l es el motivo de su visita?";
+				textInputName = "&iquest;Cu&aacute;l es su nombre?";
+				textInputNameRetry = "Por favor, ingrese un nombre v&aacute;lido.";
+				textInputEmail = "&iquest;Cu&aacute;l es su correo?";
+				textInputEmailRetry = "Por favor, ingrese un correo v&aacute;lido.";
+				textInputMessage = "&iquest;Cu&aacute;l es su mensaje?";
+				textInputMessageRetry = "Por favor, ingrese un mensaje v&aacute;lido.";
+				textTypePress = "Prensa";
+				textTypeWork = "Trabajo";
+				textTypeContact = "Consulta";
+				textThankYou = "Su mensaje ha sido entregado, muchas gracias. &iquest;Lo puedo ayudar con otro tema?";
+				textError = "Error al enviar el mensaje, por favor vuelva a intentarlo en otro momento. &iquest;Lo puedo ayudar con otro tema?";
+				textPlaceHolder = "Escriba un mensaje";
+				textSend = "Enviar";
+				}
+				else
+				{
+				textStart = "CLICK TO START<br />THE BOT DEMO";
+				textTitle = "Virtual assistant";
+				textWelcome = "Hello, I'm the virtual assistant of this Website. What is the reason of your visit?";
+				textInputName = "What is your name?";
+				textInputNameRetry = "Please, input a valid name.";
+				textInputEmail = "What is your email?";
+				textInputEmailRetry = "Please, input a valid email.";
+				textInputMessage = "What is your message?";
+				textInputMessageRetry = "Please, input a valid message";
+				textTypePress = "Press";
+				textTypeWork = "Work";
+				textTypeContact = "Contact";
+				textThankYou = "Your message has been delivered, thank you. Can I help you with another subject?";
+				textError = "Error while sending message, please try again later. Can I help you with another subject?";
+				textPlaceHolder = "Write a message";
+				textSend = "Send";
+				}
+
+			document.getElementsByClassName("demo-starter-label")[0].innerHTML = textStart;
+
+			function AssistBot_Step_1_Welcome(a)
+				{
+				homeBot.message.add(
+					{
+					delay: 1200,
+					loading: true,
+					photo: true,
+					content: a
+					}).then(function ()
+					{
+					speak(onlyText(a));
+					return homeBot.action.button(
+						{
+						delay: 1000,
+						action: [
+									{text: textTypePress, value: "press"},
+									{text: textTypeWork, value: "work"},
+									{text: textTypeContact, value: "contact"}
+								]
+						});
+					}).then(function (res)
+					{
+					homeBot.message.add({human: true, photo: true, content: res.text});
+
+					contactType = res.value;
+
+					AssistBot_Step_2_Name(textInputName);
+					});
+				}
+
+			function AssistBot_Step_2_Name(a)
+				{
+				homeBot.message.add(
+					{
+					delay: 1200,
+					loading: true,
+					photo: true,
+					content: a
+					}).then(function ()
+					{
+					speak(onlyText(a));
+					return homeBot.action.text(
+						{
+						delay: 800,
+						action: {value: "", placeholder: textPlaceHolder, button: {label: textSend}},
+						});
+					}).then(function (res)
+					{
+					homeBot.message.add({human: true, photo: true, content: res.value});
+
+					if (res.value.trim()=="")
+						{
+						surpriseFace();
+						AssistBot_Step_2_Name(textInputNameRetry);
+						}
+						else
+						{
+						contactName = res.value;
+						AssistBot_Step_3_Email(textInputEmail);
+						}
+					});
+				}
+
+			function AssistBot_Step_3_Email(a)
+				{
+				homeBot.message.add(
+					{
+					delay: 1200,
+					loading: true,
+					photo: true,
+					content: a
+					}).then(function ()
+					{
+					speak(onlyText(a));
+					return homeBot.action.text(
+						{
+						delay: 800,
+						action: {value: "", placeholder: textPlaceHolder, button: {label: textSend}},
+						});
+					}).then(function (res)
+					{
+					homeBot.message.add({human: true, photo: true, content: res.value});
+
+					if (validateEmail(res.value)==true)
+						{
+						contactEmail = res.value;
+						AssistBot_Step_4_Message(textInputMessage);
+						}
+						else
+						{
+						surpriseFace();
+						AssistBot_Step_3_Email(textInputEmailRetry);
+						}
+					});
+				}
+
+			function AssistBot_Step_4_Message(a)
+				{
+				homeBot.message.add(
+					{
+					delay: 1200,
+					loading: true,
+					photo: true,
+					content: a
+					}).then(function ()
+					{
+					speak(onlyText(a));
+					return homeBot.action.text(
+						{
+						delay: 800,
+						action: {value: "", placeholder: textPlaceHolder, button: {label: textSend}},
+						});
+					}).then(function (res)
+					{
+					homeBot.message.add({human: true, photo: true, content: res.value});
+
+					if (res.value.trim()=="")
+						{
+						AssistBot_Step_4_Message(textInputMessageRetry);
+						}
+						else
+						{
+						contactMessage = res.value;
+						AssistBot_Step_5_Posting();
+						}
+					});
+				}
+
+			function AssistBot_Step_5_Posting()
+				{
+				contactEmail = contactEmail.toLowerCase();
+				contactName = normalizeName(contactName);
+
+				// SETTING THE PARAMETERS
+				var myUrl = "example.php";
+				var params = "type=" + encodeURIComponent(contactType) + "&name=" + encodeURIComponent(contactName) + "&email=" + encodeURIComponent(contactEmail) + "&message=" + encodeURIComponent(contactMessage);
+
+				// VERSION 1 - STANDARD XMLHTTPREQUEST
+				/*
+				var http = new XMLHttpRequest();
+				http.open("GET", myUrl, true);
+				http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				http.timeout = serverTimeout;
+				http.onreadystatechange = function()
+					{
+					if(http.readyState == 4)
+						{
+						}
+					};
+				http.onerror = function (){AssistBot_Step_6_Error();};
+				http.ontimeout = function (e){AssistBot_Step_6_Error();};
+				http.send(params);
+				*/
+
+				// VERSION 2 - IMG SRC FOR AVOIDING CORS REQUEST
+				/*
+				var myImageSubmittter = document.createElement("img");
+				myImageSubmittter.onload = function()
+					{
+					AssistBot_Step_6_Thanks();
+					};
+				myImageSubmittter.onerror = function()
+					{
+					AssistBot_Step_6_Error();
+					};
+				myImageSubmittter.setAttribute("src", myUrl + "?" + params);
+				*/
+
+				// FOR DEMO ONLY
+				AssistBot_Step_6_Thanks();
+				}
+
+			function AssistBot_Step_6_Thanks()
+				{
+				happyFace();
+				AssistBot_Step_1_Welcome(textThankYou);
+				}
+
+			function AssistBot_Step_6_Error()
+				{
+				AssistBot_Step_1_Welcome(textError);
+				}
+
+			function minimize()
+				{
+				if (document.getElementById("AssistBot").style.overflowY == "hidden")
+					{
+					document.getElementById("AssistBot").style.overflowY = "visible"; 
+					document.getElementById("AssistBot").style.height = "auto";
+					document.getElementById("botui-closeicon").style.display = "block";
+					}
+					else
+					{
+					document.getElementById("AssistBot").style.overflowY = "hidden"; 
+					document.getElementById("AssistBot").style.height = "30" + "px";
+					document.getElementById("botui-closeicon").style.display = "none";
+					}
+				}
+
+			function validateEmail(email)
+				{
+				var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+				return re.test(String(email).toLowerCase());
+				}
+
+			function normalizeName(str)
+				{
+				var splitStr = str.toLowerCase().split(" ");
+				for (var i = 0; i < splitStr.length; i++)
+					{
+					splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+					}
+				return splitStr.join(" ");
+				}
+
+			function onlyText(a)
+				{
+				var div = document.createElement("div");
+				div.innerHTML = a;
+				return div.textContent || div.innerText || "";
+				}
+
+			/*
+			---------------------------
+			IMAGE EXAMPLE
+			---------------------------
+			delay: 1200,
+			type: "embed",
+			content: "https://giphy.com/embed/v1PSPwbLIrata"
+
+			---------------------------
+			URL EXAMPLE
+			---------------------------
+			delay: 1000,
+			content: "!(book) [Read the docs](https:///docs.botui.org), see [examples](https:///examples.botui.org) or explore the code on !(github) [GitHub](https://github.com/moinism/botui)"
+			*/
+
+		</script>
+	</body>
+</html>

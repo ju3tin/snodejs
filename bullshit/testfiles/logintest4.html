@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <title>Email List Subscribe Form</title>
+  </head>
+  <body>
+    <h1>Email List Subscribe Form</h1>
+    <form action="" name="nameForm" id="nameForm" method="post">
+      <label for="username">First Name: </label>
+      <input type="text" name="username" id="username" /><br />
+      <label for="password">Last Name: </label>
+      <input type="text" name="password" id="password" /><br />
+      <label for="email">Email: </label>
+      <input type="text" name="email" id="email" /><br />
+      <input type="submit" value="Subscribe" />
+    </form>
+    <script>
+
+const APIURL = "https://membershipapi.onrender.com";
+var number = {
+           email: document.getElementById('email').value,
+           username: document.getElementById('username').value, 
+           password: document.getElementById('password').value
+         }
+const subscribe = async data => {
+  const response = await fetch(`${APIURL}/api/auth/signup/`, {
+    method: "POST",
+    mode: "cors",
+    cache: "no-cache",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(number)
+  });
+  return response.json();
+};
+window.onload = () => {
+  nameForm.method = "post";
+  nameForm.target = "_blank";
+  nameForm.action = "";
+  nameForm.addEventListener("submit", async e => {
+    e.preventDefault();
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const email = document.getElementById("email").value;
+    let errors = [];
+    if (!username) {
+      errors.push("First name is required.");
+    }
+    if (!password) {
+      errors.push("Last name is required.");
+    }
+    if (!email) {
+      errors.push("Email is required.");
+    }
+    if (!/[^@]+@[^\.]+\..+/.test(email)) {
+      errors.push("Email is invalid.");
+    }
+    if (errors.length > 0) {
+      alert(errors.join(" "));
+      return;
+    }
+    try {
+      const response = await subscribe({
+        username,
+        password,
+        email
+      });
+      alert(`${response.username} ${response.password} has subscribed`);
+    } catch (error) {
+      alert(error.toString());
+    }
+  });
+};
+
+    </script>
+  </body>
+</html>

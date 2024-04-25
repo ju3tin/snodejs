@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="utf-8">
+	<title> Skelett und bones </title>
+</head>
+<body> 
+	<div style="position: absolute; top: 20px; left: 25px; text-align:left;">
+	<div > with der Maus die Kamera steuern </br>
+		<label><input type="checkbox" id="bewegen"> bones bewegen </label>
+	</div>
+</body>
+<script src="../js/three.min.83.js"></script>
+<script src="../js/OrbitControls.js"></script>
+<script>
+//Ereignisse	
+document.getElementById('bewegen').checked = false;
+window.addEventListener( 'resize', function () {
+			camera.aspect = window.innerWidth / window.innerHeight;
+			renderer.setSize( window.innerWidth, window.innerHeight );	},	false 
+);	
+// Szene, Kamera, Renderer, div-Container, Controls, Licht 
+scene = new THREE.Scene();
+camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.1, 20000 );
+camera.position.z = 200;
+renderer = new THREE.WebGLRenderer( { antialias: true } );
+renderer.setPixelRatio( window.devicePixelRatio );
+renderer.setSize( window.innerWidth, window.innerHeight );
+renderer.setClearColor( 0xdddddd, 1 );	
+container = document.createElement('div');
+document.body.appendChild(container);
+container.appendChild(renderer.domElement); 	
+orbit = new THREE.OrbitControls( camera, renderer.domElement );
+orbit.enableZoom = true;
+light1 = new THREE.PointLight(0xffffff,1,0);  light2 = light1.clone();   light3 = light1.clone();
+light1.position.set(  0,    200,   50 ); 
+light2.position.set(  100,  200,  100 );  	 // Licht von allen Seiten
+light3.position.set( -100, -200, -100 );
+scene.add(light1);  scene.add(light2);  scene.add(light3);
+// cylinder  with bones
+radiusTop			=   8;				// Radius above
+radiusBottom		=   8; 		 		// Radius below
+geometryHeight      = 120;				// Height in total
+radiusSegmentCount	=  16; 				// Number segments radial	
+boneCount			=   8; 			 	// Number bones
+segmentBoneCount	=   3;				// segments je bones
+openEnded 			= true; 			// offene Enden: true 
+boneHeight			= geometryHeight/ boneCount ;		// Height bones
+geometryHalfHeight	= geometryHeight * 0.5;				// half total height
+heightSegmentCount	= boneCount * segmentBoneCount; 	// Number segments in total hoch 	
+/*  "skinned mesh" ist ein Netz with einer Oberflaeche "Haut", die ein Stabskelett umkleidet. 
+    Die Netz-Knoten sind an einem bis maximal vier "Skelett-bones " (bones)
+    with einer Gewichtung (.skinWeights withSumme 1) angeheftet.
+    Das ergibt ein deformierbares Netz with bones-gewichteten Knoten.                     */
+geometry = new THREE.CylinderGeometry(radiusTop,radiusBottom,geometryHeight,radiusSegmentCount,heightSegmentCount,openEnded);
+for ( var i = 0; i < geometry.vertices.length; i ++ ) {         // zu allen Knoten:
+	vertexY = ( geometry.vertices[ i ].y + geometryHalfHeight );				// nur von y abhaengig!
+	skinIndex = Math.floor( vertexY  / boneHeight );            // skin-Index bestimmen  (bones Nr. 0 below)   
+	skinWeight = ( vertexY  % boneHeight) /  boneHeight;        // Gewichtung dazu
+	geometry.skinIndices.push( new THREE.Vector4(    skinIndex, skinIndex+1, 0, 0 ) ); //  Zuordnung (zwei von max. vier bones)
+	geometry.skinWeights.push( new THREE.Vector4( 1-skinWeight, skinWeight , 0, 0 ) );
+}
+bones = [];  // Datenfeld der unsichtbaren bones, Basis der Koordinaten des Skeletts: bone[0] 
+var prevBone = new THREE.Bone();  // (vorheriger bones fuer weitere)
+bones.push( prevBone );           // Anfangsbones [0] ablegen
+prevBone.position.y = - geometryHalfHeight; // Anfangsbones below 
+for ( var i = 1; i < boneCount+1; i ++ ) { 	// alle weiteren bones: 
+	bone = prevBone.clone();             	//   clonen
+	bone.position.y = boneHeight;  			// im richtigen Abstand ...
+	bones.push( bone );
+	prevBone.add( bone ); 					//  ... jeweils an den vorherigen bones anhaengen
+	prevBone = bone;						// neuer vorheriger bones       
+}		
+material = new THREE.MeshPhongMaterial({
+  color:0x896215, emissive:0x342507, side:THREE.DoubleSide,     // shading:THREE.FlatShading,  // -> ergibt kantige Haut
+  wireframe:false, skinning:true // skinning - Knoten with Skelett bewegen
+});	
+mesh = new THREE.SkinnedMesh( geometry,	material );
+skeleton = new THREE.Skeleton( bones );	            // Skelett aus den bones bilden
+mesh.add( bones[ 0 ] );								// dem Netz den Basisbones zufuegen
+mesh.bind( skeleton );								// Netz und Skelett "zusammenbinden"
+scene.add( mesh );
+skeletonHelper = new THREE.SkeletonHelper( mesh );  // Skelett sichtbar machen
+scene.add( skeletonHelper );	
+//...............
+animate();
+//...............
+function animate() {
+	requestAnimationFrame( animate );
+	var time = Date.now() * 0.001;			
+	if ( document.getElementById("bewegen").checked){           			//bones bewegen	
+		for ( var i = 0; i < mesh.skeleton.bones.length; i ++ ) {
+			mesh.skeleton.bones[ i ].rotation.z = Math.sin( time ) * 2 / mesh.skeleton.bones.length;			
+		}		
+		mesh.skeleton.bones[0].position.x += 0.4*Math.cos( time*0.4 );
+		mesh.skeleton.bones[0].position.z += 0.2*Math.sin( time*0.4 );	
+		mesh.skeleton.bones[0].rotation.z           = 3.14*Math.cos( time*0.05 );
+		mesh.skeleton.bones[boneCount-3].rotation.x = 0.30*Math.sin( time*0.35 )
+		mesh.skeleton.bones[boneCount-1].rotation.x = 0.60*Math.cos( time*0.35 );
+	}
+	skeletonHelper.update();
+	renderer.render( scene, camera );
+}
+</script>
+</html>

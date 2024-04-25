@@ -20,6 +20,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+// Serve the "bullshit" folder as a static directory
+app.use('/', express.static(path.join(__dirname, 'bullshit')));
+
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname,"/shit/index.html"));
 })

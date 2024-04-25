@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Using the XMLHttpRequest Object</h2>
+
+<div id="demo">
+<button type="button" onclick="loadXMLDoc()">Change Content</button>
+</div>
+
+<script>
+function loadXMLDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("GET", "https://api.wit.ai/message?v=20230218&q=hello", true);
+  xhttp.setRequestHeader("authorization", "Bearer OQ3VFYQJNEXNAQVNZ2UOTOU4TMVOITL4");
+  xhttp.setRequestHeader("cache-control", "no-cache");
+  xhttp.setRequestHeader("postman-token", "a4e70fec-ccba-bbf8-ce94-507669e33928");
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+    /*        let url = 'https://membershipapi.onrender.com/api/auth/signup'
+            let req = new XMLHttpRequest();
+
+            console.log(req);
+            req.open('POST', url, true);
+            req.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+            req.onreadystatechange = () =>{
+                if(req.readyState === 4 && req.status === 201){
+                    let object = JSON.parse(req.responseText)
+                    console.log(object);
+                }
+            }
+            var number1 = {
+           email: document.getElementById('email').value,
+           username: document.getElementById('username').value, 
+           password: document.getElementById('password').value
+         }
+            let body = JSON.stringify(number1)
+            req.send(body);
+            */
+        </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+      document.getElementById('sendMessage').onclick = function(){
+  
+      //  const userName = document.getElementById('name').value;
+        // const url = 'https://jsonplaceholder.typicode.com/posts';
+        // Add your code below this line
+        let url = 'https://membershipapi.onrender.com/api/auth/signup'
+            let req = new XMLHttpRequest();
+
+            console.log(req);
+            req.open('POST', url, true);
+            req.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+            req.onreadystatechange = () =>{
+                if(req.readyState === 4 && req.status === 201){
+                    
+                    let object = JSON.parse(req.responseText)
+                    console.log(object);
+                }
+                if(req.status === 200){
+                    let object = JSON.parse(req.responseText)
+                    console.log(object);
+                    document.getElementById("messagebox").innerHTML = object.message;
+            }
+            }
+            var number = {
+           email: document.getElementById('email').value,
+           username: document.getElementById('username').value, 
+           password: document.getElementById('password').value
+         }
+            let body = JSON.stringify(number);
+            req.send(body);
+            let dude = req.responseText;
+            console.log(dude);
+          //  let jsonResponse = req.response;
+           // document.getElementById("messagebox").innerHTML = dude.responseText;
+        // Add your code above this line
+      };
+    });
+  </script>
+  
+  <style>
+    body {
+      text-align: center;
+      font-family: "Helvetica", sans-serif;
+    }
+    h1 {
+      font-size: 2em;
+      font-weight: bold;
+    }
+    .box {
+      border-radius: 5px;
+      background-color: #eee;
+      padding: 20px 5px;
+    }
+    button {
+      color: white;
+      background-color: #4791d0;
+      border-radius: 5px;
+      border: 1px solid #4791d0;
+      padding: 5px 10px 8px 10px;
+    }
+    button:hover {
+      background-color: #0F5897;
+      border: 1px solid #0F5897;
+    }
+  </style>
+  
+  <h1>Cat Friends</h1>
+  <p id="messagebox" class="message box">
+    Reply from Server will be here
+  </p>
+  <p>
+    <label for="username">Your name:
+      <input type="text" id="username"/>
+    </label>
+    <label for="email">Your name:
+        <input type="text" id="email"/>
+      </label>
+      <label for="password">Your name:
+        <input type="text" id="password"/>
+      </label>
+    <button id="sendMessage">
+      Send Message
+    </button>
+  </p>
+
+    </body>
+</html>

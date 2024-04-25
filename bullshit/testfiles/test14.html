@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    
+    <html xmlns="http://www.w3.org/1999/xhtml" >
+    <head>
+        <title>Test XMLHttpRequest Post Data</title>
+        <script type="text/javascript">
+            function postData(){
+               var xhr = null; 
+   
+               if(window.XMLHttpRequest)
+   	            xhr = new XMLHttpRequest(); 
+               else if (window.ActiveXObject)
+   	            xhr  = new ActiveXObject(Microsoft.XMLHTTP);				
+   
+               xhr.onreadystatechange = function(){ 
+                                            if(xhr.readyState == 4 && xhr.status == 200)
+                                                alert(xhr.responseText);
+                                            else if(xhr.readyState == 4)
+                                               alert("Error: returned status code " + xhr.status + " " + xhr.statusText); 
+                                        };
+   
+               xhr.open("POST", "https://api.wit.ai/message?v=20140826&q=hello", true);
+               xhr.setRequestHeader("Content-Type", "application/json");
+               xhr.setRequestHeader("Authorization", "Bearer OQ3VFYQJNEXNAQVNZ2UOTOU4TMVOITL4");
+               xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+               xhr.setRequestHeader("Access-Control-Allow-Credentials", "true");
+  xhr.setRequestHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+  xhr.setRequestHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+  
+               // Need to escape value because it has an equals sign
+               xhr.send("txtTest=" + escape(document.getElementById("txtTest").value));
+           }
+       </script>
+ </head>
+   <body>
+       <form id="formData" name="formData" action="https://api.wit.ai/message?v=20230218&q=hello" method="post">
+          <input type="text" id="txtTest" name="txtTest" value="Te+st=" />
+           <input type="button" id="btnTest" name="btnTest" onclick="postData();" value="Test" />
+           <br />
+           <%=Request.Form("txtTest")%>
+       </form>
+  </body>
+   </html>

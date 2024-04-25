@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        
+    </style>
+    <script src="/scripts/snippet-javascript-console.min.js?v=1"></script>
+</head>
+<body>
+    <audio id="music" src="/media/download2.mp3" crossorigin="use-URL-credentials" controls="true"></audio>
+    <script type="text/javascript">
+        const audio = document.getElementById('music');
+audio.load();
+audio.play();
+
+const ctx = new AudioContext();
+const audioSrc = ctx.createMediaElementSource(audio);
+const analyser = ctx.createAnalyser();
+
+audioSrc.connect(analyser);
+analyser.connect(ctx.destination);
+
+analyser.fftSize = 256;
+const bufferLength = analyser.frequencyBinCount;
+const frequencyData = new Uint8Array(bufferLength);
+
+setInterval(() => {
+   analyser.getByteFrequencyData(frequencyData);
+   console.log(frequencyData);
+}, 1000);
+    </script>
+</body>
+</html>

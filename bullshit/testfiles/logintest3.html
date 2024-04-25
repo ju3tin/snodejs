@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+   <h1>
+   XHR POST to Server
+   </h1>
+   <body>
+     <input type='text' id='email' /> 
+     <input type='text' id='password' />
+     <script>
+       function send () {
+         var number = {
+           email: document.getElementById('email').value, 
+           password: document.getElementById('password').value
+         }
+         var xhr = new window.XMLHttpRequest()
+         xhr.open('POST', 'https://membershipapi.onrender.com/api/auth/signup', true)
+         xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+         xhr.send(JSON.stringify(number))
+       }
+     </script>
+     <button type='button' value='Send' name='Send' onclick='send()' >
+       Send
+     </button>
+   </body>
+</html>

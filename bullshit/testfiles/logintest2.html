@@ -1,0 +1,42 @@
+<html>
+    <head></head>
+    <body>
+        <form name="person">
+            <input id="email" name="email">
+            <input id="username" name="username">
+            <input id="password" name="password">
+          
+          </form>
+          <button id="sendMessage">
+            Send Message
+          </button>
+  <script>
+    // pre-fill FormData from the form
+    
+    let formData = new FormData(document.forms.person);
+    let username1 = formData.username;
+    let email1 = formData.email;
+    let password = formData.password;
+    // add one more field
+    formData.append("middle", "Lee");
+    var number = {
+           email: document.getElementById('email').value,
+           username: document.getElementById('username').value, 
+           password: document.getElementById('password').value
+         }
+  
+    // send it out
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "https://membershipapi.onrender.com/api/auth/signup");
+    xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+    let body = JSON.stringify(number);
+    document.getElementById('sendMessage').onclick = function(){
+    xhr.send(body);
+  
+    xhr.onload = () => alert(xhr.response);
+    }
+  </script>
+  
+
+
+  </body></html>

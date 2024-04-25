@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="130px" height="130px" viewBox="0 0 130 130" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>BTN Play Whte</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="BTN-Play-Whte" transform="translate(1.000000, 1.000000)">
+            <g>
+                <circle id="Oval" stroke="#FFFFFF" cx="64" cy="64" r="64"></circle>
+                <path d="M71.1832816,52.3665631 L84.5527864,79.1055728 C85.0467649,80.0935298 84.6463162,81.2948759 83.6583592,81.7888544 C83.3806483,81.9277098 83.0744222,82 82.763932,82 L54.236068,82 C53.1314985,82 52.236068,81.1045695 52.236068,80 C52.236068,79.6895098 52.3083582,79.3832837 52.4472136,79.1055728 L65.8167184,52.3665631 C66.5576862,50.8846277 68.3597053,50.2839546 69.8416408,51.0249224 C70.422223,51.3152135 70.8929905,51.7859809 71.1832816,52.3665631 Z" id="Triangle" fill="#FFFFFF" transform="translate(68.500000, 64.500000) rotate(-270.000000) translate(-68.500000, -64.500000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

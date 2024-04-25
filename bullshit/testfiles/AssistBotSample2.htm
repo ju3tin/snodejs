@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>AssistBot | Demo</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="AssistBot.css" type="text/css">
+	</head>
+	<body style="background-color:grey;">
+		<div class="botui-app-container" id="AssistBot">
+			<div class="botui-title"><span class="botui-titlename"></span><div class="botui-closeicon"></div></div>
+			<div class="botui-scroller">
+				<bot-ui></bot-ui>
+			</div>
+		</div>
+		<script src="AssistBot.min.js"></script>
+		<script>
+			var workingFrom = 0;
+			var workingTo = 23;
+			var workingTimeZone = "-3"; // EXAMPLE TIME ZONE
+
+			var homeBot = BotUI("AssistBot");
+
+			var userLanguage = window.navigator.userLanguage || window.navigator.language;
+
+			var textTitle = "";
+			var textWelcome = "";
+			var textMakeReservation = "";
+			var textCheckReservation = "";
+			var textInputDate = "";
+			var textInputDateWho = "";
+			var textInputDateWhoRetry = "";
+			var textInputDateError1 = "";
+			var textInputDateError2 = "";
+			var textVacancy = "";
+			var textNoVacancy = "";
+			var textRoomSimple = "";
+			var textRoomDouble = "";
+			var textHowManyDays = "";
+			var textHowManyDaysError = "";
+			var textInputName = "";
+			var textInputNameRetry = "";
+			var textInputEmail = "";
+			var textInputEmailRetry = "";
+			var textReservationMade = "";
+			var textNoReservationMade = "";
+			var textMonth1 = "";
+			var textMonth2 = "";
+			var textMonth3 = "";
+			var textMonth4 = "";
+			var textMonth5 = "";
+			var textMonth6 = "";
+			var textMonth7 = "";
+			var textMonth8 = "";
+			var textMonth9 = "";
+			var textMonth10 = "";
+			var textMonth11 = "";
+			var textMonth12 = "";
+			var textThankYou = "";
+			var textError = "";
+			var textPlaceHolder = "";
+			var textSend = "";
+
+			var reservationDate = "";
+			var reservationRoomType = "";
+			var reservationDays = "";
+			var reservationName = "";
+			var reservationEmail = "";
+
+			if (userLanguage.substring(0,2)=="es")
+				{
+				textTitle = "Asistente virtual";
+				textWelcome = "Hola, soy la asistente virtual del Hotel Ejemplo. &iquest;Qu&eacute; puedo hacer por usted?";
+				textMakeReservation = "Reservar";
+				textCheckReservation = "Consultar reserva";
+				textInputDate = "&iquest;A partir de qu&eacute; fecha desea hacer la reserva?";
+				textInputDateWho = "&iquest;Cu&aacute;l es el nombre completo de la persona que hizo la reserva?";
+				textInputDateWhoRetry = "Por favor, ingrese el nombre completo de la persona que hizo la reserva.";
+				textInputDateError1 = "La fecha ingresada no puede ser anterior o igual a la fecha actual. Por favor seleccione otra fecha.";
+				textInputDateError2 = "La fecha ingresada no puede ser superior a dos años de la fecha actual. Por favor seleccione otra fecha.";
+				textVacancy = "Hay disponibilidad en esa fecha. &iquest;Qu&eacute; tipo de habitaci&oacute;n desea?";
+				textNoVacancy = "No hay disponibilidad en esa fecha. Por favor seleccione otra.";
+				textRoomSimple = "Simple";
+				textRoomDouble = "Matrimonial";
+				textHowManyDays = "&iquest;Cuantos d&iacute;as desea quedarse?";
+				textHowManyDaysError = "Por favor, ingrese una cantidad v&aacute;lida de d&iacute;as.";
+				textInputName = "&iquest;Cu&aacute;l es su nombre completo?";
+				textInputNameRetry = "Por favor, ingrese su nombre completo.";
+				textInputEmail = "&iquest;Cu&aacute;l es su correo?";
+				textInputEmailRetry = "Por favor, ingrese un correo v&aacute;lido.";
+				textReservationMade = " tiene reservada una habitaci&oacute;n matrimonial del %FROMDAY% de %FROMMONTH% de %FROMYEAR% al %TODAY% de %TOMONTH% de %TOYEAR%, en el piso %FLOOR%, habitaci&oacute;n %ROOM%. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
+				textNoReservationMade = " no tiene reservada ninguna habitaci&oacute;n. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
+				textMonth1 = "Enero";
+				textMonth2 = "Febrero";
+				textMonth3 = "Marzo";
+				textMonth4 = "Abril";
+				textMonth5 = "Mayo";
+				textMonth6 = "Junio";
+				textMonth7 = "Julio";
+				textMonth8 = "Agosto";
+				textMonth9 = "Septiembre";
+				textMonth10 = "Octubre";
+				textMonth11 = "Noviembre";
+				textMonth12 = "Diciembre";
+				textThankYou = "Su reserva se ha realizado, muchas gracias. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
+				textError = "Error al realizar la reserva, por favor vuelva a intentarlo en otro momento. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
+				textPlaceHolder = "Escriba un mensaje";
+				textSend = "Enviar";
+				}
+				else
+				{
+				textTitle = "Virtual assistant";
+				textWelcome = "Hello, I'm the virtual assistant at the Example Hotel. What can I do for you?";
+				textMakeReservation = "Reservation";
+				textCheckReservation = "Check reservation";
+				textInputDate = "From which date you want to make the reservation?";
+				textInputDateWho = "What is the full name of the person that did the reservation?";
+				textInputDateWhoRetry = "Please, input the full name of the person that did the reservation.";
+				textInputDateError1 = "The date can't be before or equal to the current date. Please select another date.";
+				textInputDateError2 = "The date can't be more than two years after the current date. Please select another date.";
+				textVacancy = "There is vacancy in that date. What kind of room would you like?";
+				textNoVacancy = "There is no vacancy in the selected date. Please select another one.";
+				textRoomSimple = "Simple";
+				textRoomDouble = "Double";
+				textHowManyDays = "How many days are you going to stay?";
+				textHowManyDaysError = "Please, input a valid amount of days.";
+				textInputName = "What is your full name?";
+				textInputNameRetry = "Please, input your full name.";
+				textInputEmail = "What is your email?";
+				textInputEmailRetry = "Please, input a valid email.";
+				textReservationMade = " has a double room reserved from %FROMDAY% %FROMMONTH% %FROMYEAR% to %TODAY% %TOMONTH% %TOYEAR%, on the floor %FLOOR%, room %ROOM%. What else can I do for you?";
+				textNoReservationMade = " hasn't any room reserved. What else can I do for you?";
+				textMonth1 = "January";
+				textMonth2 = "February";
+				textMonth3 = "March";
+				textMonth4 = "April";
+				textMonth5 = "May";
+				textMonth6 = "June";
+				textMonth7 = "July";
+				textMonth8 = "August";
+				textMonth9 = "September";
+				textMonth10 = "October";
+				textMonth11 = "November";
+				textMonth12 = "December";
+				textThankYou = "You reservation was made, thank you. What else can I do for you?";
+				textError = "Error while making the reservation, please try again later. What else can I do for you?";
+				textPlaceHolder = "Write a message";
+				textSend = "Send";
+				}
+
+			function AssistBot_Step_1_Welcome(a)
+				{
+				homeBot.message.add(
+					{
+					delay: 1200,
+					loading: true,
+					photo: true,
+					content: a
+					}).then(function ()
+					{
+					return homeBot.action.button(
+						{
+						delay: 1000,
+						action: [
+									{text: textMakeReservation, value: "make"},
+									{text: textCheckReservation, value: "check"},
+								]
+						});
+					}).then(function (res)
+					{
+					homeBot.message.add({human: true, photo: true, content: res.text});
+
+					if(res.value=="make")
+						{
+						AssistBot_Step_2_Date(textInputDate);
+						}
+						else
+						{
+						AssistBot_Step_10_CheckingReservation(textInputDateWho);
+						}
+					});
+				}
+
+			function AssistBot_Step_2_Date(a)
+				{
+				homeBot.message.add(
+					{
+					delay: 1200,
+					loading: true,
+					photo: true,
+					content: a
+					}).then(function ()
+					{
+					return homeBot.action.text(
+						{
+						delay: 800,
+						action: {value: "", sub_type: "date", placeholder: textPlaceHolder, button: {label: textSend}},
+						});
+					}).then(function (res)
+					{
+					var response = res.value.split("-");
+					var valueYear = response[0];
+					var valueMonth = response[1];
+					var valueDay = response[2];
+
+					var dateText = "";
+
+					if (userLanguage.substring(0,2)=="es")
+						{
+						dateText = valueDay + "/" + valueMonth + "/" + valueYear;
+						}
+						else
+						{
+						dateText = valueMonth + "/" + valueDay + "/" + valueYear;
+						}
+
+					homeBot.message.add({human: true, photo: true, content: dateText});
+
+					var selectedDate = new Date(res.value);
+					var selectedYear = selectedDate.getFullYear();
+					var currentDate = new Date();
+					var currentYear = currentDate.getFullYear();
+
+					if (selectedYear<currentYear) // IF THE SELECTED YEAR IS BEFORE THE CURRENT YEAR
+						{
+						AssistBot_Step_2_Date(textInputDateError1);
+						}
+					else if (selectedYear>currentYear+1) // IF THE SELECTED DATE IS MORE THAN TWO YEARS AFTER THE CURRENT DATE
+						{
+						AssistBot_Step_2_Date(textInputDateError2);
+						}
+					else if (isNaN(selectedYear)) // IF THE SELECTED YEAR DO NOT EXISTS
+						{
+						AssistBot_Step_2_Date(textInputDateError2);
+						}
+					else if (selectedDate<currentDate) // IF THE SELECTED DATE IS BEFORE CURRENT DATE
+						{
+						AssistBot_Step_2_Date(textInputDateError1);
+						}
+						else
+						{
+						var reservationDate = res.value;
+
+						var vacancy = true;
+
+						// IF THERE IS ANY VACANCY
+						if (vacancy == true)
+							{
+							AssistBot_Step_3_RoomType(textVacancy);
+							}
+							else
+							{
+							AssistBot_Step_2_Date(textNoVacancy);
+							}
+						}
+					});
+				}
+
+			function AssistBot_Step_3_RoomType(a)
+				{
+				homeBot.message.add(
+					{
+					delay: 1200,
+					loading: true,
+					photo: true,
+					content: a
+					}).then(function ()
+					{
+					return homeBot.action.button(
+						{
+						delay: 1000,
+						action: [
+									{text: textRoomSimple, value: "simple"},
+									{text: textRoomDouble, value: "double"},
+								]
+						});
+					}).then(function (res)
+					{
+					homeBot.message.add({human: true, photo: true, content: res.text});
+
+					reservationRoomType = res.value;
+
+					AssistBot_Step_5_Days(textHowManyDays);
+					});
+				}
+
+			function AssistBot_Step_5_Days(a)
+				{
+				homeBot.message.add(
+					{
+					delay: 1200,
+					loading: true,
+					photo: true,
+					content: a
+					}).then(function ()
+					{
+					return homeBot.action.text(
+						{
+						delay: 800,
+						action: {value: "", sub_type: "number", placeholder: textPlaceHolder, button: {label: textSend}},
+						});
+					}).then(function (res)
+					{
+					homeBot.message.add({human: true, photo: true, content: res.value});
+
+					if (res.value<1)
+						{
+						AssistBot_Step_5_Days(textHowManyDaysError);
+						}
+						else
+						{
+						reservationDays = res.value;
+
+						AssistBot_Step_6_Name(textInputName);
+						}
+					});
+				}
+
+			function AssistBot_Step_6_Name(a)
+				{
+				homeBot.message.add(
+					{
+					delay: 1200,
+					loading: true,
+					photo: true,
+					content: a
+					}).then(function ()
+					{
+					return homeBot.action.text(
+						{
+						delay: 800,
+						action: {value: "", placeholder: textPlaceHolder, button: {label: textSend}},
+						});
+					}).then(function (res)
+					{
+					homeBot.message.add({human: true, photo: true, content: res.value});
+
+					if (res.value.trim()=="")
+						{
+						AssistBot_Step_6_Name(textInputNameRetry);
+						}
+						else
+						{
+						if (countWords(res.value)<2)
+							{
+							AssistBot_Step_6_Name(textInputNameRetry);
+							}
+							else
+							{
+							reservationName = res.value;
+							AssistBot_Step_7_Email(textInputEmail);
+							}
+						}
+					});
+				}
+
+			function AssistBot_Step_7_Email(a)
+				{
+				homeBot.message.add(
+					{
+					delay: 1200,
+					loading: true,
+					photo: true,
+					content: a
+					}).then(function ()
+					{
+					return homeBot.action.text(
+						{
+						delay: 800,
+						action: {value: "", placeholder: textPlaceHolder, button: {label: textSend}},
+						});
+					}).then(function (res)
+					{
+					homeBot.message.add({human: true, photo: true, content: res.value});
+
+					if (validateEmail(res.value)==true)
+						{
+						reservationEmail = res.value;
+						AssistBot_Step_8_Posting();
+						}
+						else
+						{
+						AssistBot_Step_7_Email(textInputEmailRetry);
+						}
+					});
+				}
+
+			function AssistBot_Step_8_Posting()
+				{
+				reservationEmail = reservationEmail.toLowerCase();
+				reservationName = normalizeName(reservationName);
+
+				// SETTING THE PARAMETERS
+				var myUrl = "example.php";
+				var params = "date=" + encodeURIComponent(reservationDate) + "&days=" + encodeURIComponent(reservationDays) + "&type=" + encodeURIComponent(reservationRoomType) + "&name=" + encodeURIComponent(reservationName) + "&email=" + encodeURIComponent(reservationEmail);
+
+				// VERSION 1 - STANDARD XMLHTTPREQUEST
+				/*
+				var http = new XMLHttpRequest();
+				http.open("GET", myUrl, true);
+				http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				http.timeout = serverTimeout;
+				http.onreadystatechange = function()
+					{
+					if(http.readyState == 4)
+						{
+						}
+					};
+				http.onerror = function (){AssistBot_Step_6_Error();};
+				http.ontimeout = function (e){AssistBot_Step_6_Error();};
+				http.send(params);
+				*/
+
+				// VERSION 2 - IMG SRC FOR AVOIDING CORS REQUEST
+				/*
+				var myImageSubmittter = document.createElement("img");
+				myImageSubmittter.onload = function()
+					{
+					AssistBot_Step_6_Thanks();
+					};
+				myImageSubmittter.onerror = function()
+					{
+					AssistBot_Step_6_Error();
+					};
+				myImageSubmittter.setAttribute("src", myUrl + "?" + params);
+				*/
+
+				// FOR DEMO ONLY
+				AssistBot_Step_9_Thanks();
+				}
+
+			function AssistBot_Step_9_Thanks()
+				{
+				AssistBot_Step_1_Welcome(textThankYou);
+				}
+
+			function AssistBot_Step_9_Error()
+				{
+				AssistBot_Step_1_Welcome(textError);
+				}
+
+			function AssistBot_Step_10_CheckingReservation(a)
+				{
+				homeBot.message.add(
+					{
+					delay: 1200,
+					loading: true,
+					photo: true,
+					content: a
+					}).then(function ()
+					{
+					return homeBot.action.text(
+						{
+						delay: 800,
+						action: {value: "", placeholder: textPlaceHolder, button: {label: textSend}},
+						});
+					}).then(function (res)
+					{
+					homeBot.message.add({human: true, photo: true, content: res.value});
+
+					if (res.value.trim()=="")
+						{
+						AssistBot_Step_10_CheckingReservation(textInputDateWhoRetry);
+						}
+						else
+						{
+						if (countWords(res.value)<2)
+							{
+							AssistBot_Step_10_CheckingReservation(textInputDateWhoRetry);
+							}
+							else
+							{
+							var reserved = true;
+
+							var myDate = new Date();
+							var year = myDate.getFullYear();
+							var fromYear = year + 1;
+							var fromMonth = textMonth5;
+							var fromDay = "3";
+							var toYear = year + 1;
+							var toMonth = textMonth6;
+							var toDay = "20";
+							var floor = "2";
+							var room = "3";
+
+							if (reserved==true)
+								{
+								var answer = res.value + textReservationMade;
+								answer = answer.replace("%FROMYEAR%",fromYear);
+								answer = answer.replace("%FROMMONTH%",fromMonth);
+								answer = answer.replace("%FROMDAY%",fromDay);
+								answer = answer.replace("%TOYEAR%",toYear);
+								answer = answer.replace("%TOMONTH%",toMonth);
+								answer = answer.replace("%TODAY%",toDay);
+								answer = answer.replace("%FLOOR%",floor);
+								answer = answer.replace("%ROOM%",room);
+								AssistBot_Step_1_Welcome(answer);
+								}
+								else
+								{
+								AssistBot_Step_1_Welcome(res.value + textNoReservationMade);
+								}
+							}
+						}
+					});
+				}
+
+			function validateEmail(email)
+				{
+				var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+				return re.test(String(email).toLowerCase());
+				}
+
+			function validateDate(d)
+				{
+				return d instanceof Date && !isNaN(d);
+				}
+
+			function normalizeName(str)
+				{
+				var splitStr = str.toLowerCase().split(" ");
+				for (var i = 0; i < splitStr.length; i++)
+					{
+					splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+					}
+				return splitStr.join(" ");
+				}
+
+			function countWords(s)
+				{
+				s = s.replace(/(^\s*)|(\s*$)/gi,"");
+				s = s.replace(/[ ]{2,}/gi," ");
+				s = s.replace(/\n /,"\n");
+				return s.split(" ").filter(function(str){return str!="";}).length;
+				}
+
+			function getTime(offset)
+				{
+				var d = new Date();
+				var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+				var nd = new Date(utc + (3600000*offset));
+				var hours = nd.getHours();
+				return hours;
+				}
+
+			function isInRange(hour)
+				{
+				if (workingFrom>=workingTo)
+					{
+					if (workingFrom<=hour)
+						{
+						return true;
+						}
+						else
+						{
+						return false;
+						}
+					}
+				else
+					{
+					if (workingTo>=hour)
+						{
+						return true;
+						}
+						else
+						{
+						return false;
+						}
+					}
+				}
+
+			window.addEventListener("load", function()
+				{
+				// UPDATING THE CHATBOT WINDOW TITLE
+				document.getElementsByClassName("botui-titlename")[0].innerHTML = textTitle;
+
+				// SETTING WHAT WILL HAPPEN WHEN THE USER CLICKS OR TOUCHES IN THE CHATBOT WINDOW TITLE
+				document.getElementsByClassName("botui-title")[0].addEventListener("click",function(event)
+					{
+					// CHECKING IF THE CHATBOT WINDOW IS MINIMIZED
+					if (document.getElementById("AssistBot").style.overflowY == "hidden")
+						{
+						// SHOWING THE CHATBOT WINDOW
+						document.getElementById("AssistBot").style.overflowY = "visible";
+						document.getElementById("AssistBot").style.height = "auto";
+						document.getElementsByClassName("botui-scroller")[0].style.display = "block";
+						document.getElementsByClassName("botui-closeicon")[0].style.display = "block";
+
+						// SCROLLING TO THE BOTTOM OF THE CHATBOT WINDOW
+						setTimeout(function(){document.getElementsByClassName("botui botui-container")[0].scrollTop = document.getElementsByClassName("botui botui-container")[0].scrollHeight;},100);
+						}
+						else
+						{
+						// HIDING THE CHATBOT WINDOW
+						document.getElementById("AssistBot").style.overflowY = "hidden";
+						document.getElementById("AssistBot").style.height = "30" + "px";
+						document.getElementsByClassName("botui-scroller")[0].style.display = "none";
+						document.getElementsByClassName("botui-closeicon")[0].style.display = "none";
+						}
+					});
+
+				// GETTING THE CURRENT TIME
+				var checkWorkingHour = getTime(workingTimeZone);
+
+				// CHECKING IF IS WORKING TIME FOR THE CHATBOT
+				if (isInRange(checkWorkingHour)==true)
+					{
+					// SHOWING THE CHATBOT WINDOW
+					document.getElementById("AssistBot").style.display = "block";
+
+					// SHOWING THE WELCOME MESSAGE
+					AssistBot_Step_1_Welcome(textWelcome);
+					}
+				});
+
+			/*
+			---------------------------
+			IMAGE EXAMPLE
+			---------------------------
+			delay: 1200,
+			type: "embed",
+			content: "https://giphy.com/embed/v1PSPwbLIrata"
+
+			---------------------------
+			URL EXAMPLE
+			---------------------------
+			delay: 1000,
+			content: "!(book) [Read the docs](https:///docs.botui.org), see [examples](https:///examples.botui.org) or explore the code on !(github) [GitHub](https://github.com/moinism/botui)"
+			*/
+
+		</script>
+	</body>
+</html>

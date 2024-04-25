@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <script src="/js/web3.min.js"></script>
+  <body>
+    <div>
+      <button onclick="payErc20()">erc20</button>
+    </div>
+
+    <script type="text/javascript">
+      window.addEventListener("load", initWeb3);
+
+      async function initWeb3() {
+        if (window.ethereum) {
+          web3 = new Web3(ethereum);
+        } else {
+          alert("No Ethereum browser detected. Please connect to a wallet");
+        }
+      }
+
+      function payErc20() {
+        // Get ERC20 Token contract instance
+        const abi = [
+          {
+            constant: false,
+            inputs: [
+              { name: "_to", type: "address" },
+              { name: "_value", type: "uint256" },
+            ],
+            name: "transfer",
+            outputs: [{ name: "", type: "bool" }],
+            type: "function",
+          },
+        ];
+
+        // https://rinkeby.etherscan.io/address/0xb8c77482e45f1f44de1745f52c74426c631bdd52
+        const contractAddress = "0xc778417e063141139fce010982780140aa0cd5ab";
+        const from = "0xaCA9B6D9B1636D99156bB12825c75De1E5a58870";
+        const toAddress = "0x192c96bfee59158441f26101b2db1af3b07feb40";
+        const contract = new web3.eth.Contract(abi, contractAddress);
+
+        // ERC20 token amount
+        const value = web3.utils.toBN(0.0123 * Math.pow(10, 18));
+
+        // call transfer function
+        contract.methods
+          .transfer(toAddress, value)
+          .send({ from })
+          .then(function (receipt) {
+            console.log(receipt);
+          });
+      }
+    </script>
+  </body>
+</html>

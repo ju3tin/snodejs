@@ -1,0 +1,36 @@
+<html>
+    <head>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <form id='test-form'>
+            Input1: <input name='input1'><br>
+            Input2: <input name='input2'><br>
+            <input type='submit'>
+          </form>
+          <script>
+            var testForm = document.getElementById('test-form');
+            testForm.onsubmit = function(event) {
+              event.preventDefault();
+          
+              var request = new XMLHttpRequest();
+              // POST to httpbin which returns the POST data as JSON
+              request.open('GET', 'https://api.wit.ai/message?v=20230218&q=hello');
+              request.setRequestHeader("Authorization", "Bearer OQ3VFYQJNEXNAQVNZ2UOTOU4TMVOITL4");
+                  request.setRequestHeader("cache-control", "no-cache");
+                  request.setRequestHeader("postman-token", "94421563-10f9-ea6f-c053-cb184cb537eb");
+                  request.setRequestHeader('Access-Control-Allow-Credentials', 'true');
+                  //request.setRequestHeader('Access-Control-Max-Age', '86400');
+                  request.setRequestHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT, DELETE');
+                  //request.setRequestHeader('preflightContinue', false);
+                  //request.setRequestHeader('Access-Control-Allow-Headers', 'Methods,preflightContinue,Age,Authorization,Content-Type,Accept,Origin,User-Agent,DNT,Cache-Control,X-Mx-ReqToken,Keep-Alive,X-Requested-With,If-Modified-Since');
+                  request.setRequestHeader('Access-Control-Allow-Headers', '*');
+              var formData = new FormData(document.getElementById('test-form'));
+              request.send(formData);
+          
+              console.log(request.response);
+            }
+          </script>
+    </body>
+</html>

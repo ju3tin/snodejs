@@ -1,0 +1,17 @@
+body {
+    background: #efefef;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    
+    /* audio and visualiser to bottom of page */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  
+  audio {
+    width: 100%;
+  }
+  
