@@ -1,0 +1,932 @@
+
+<!doctype html>
+<html lang="en-US" itemscope itemtype="https://schema.org/none" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">(()=>{var e,t,r={9071:(e,t,r)=>{"use strict";r.d(t,{I:()=>n});var n=0,i=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);i&&(n=+i[1])},6562:(e,t,r)=>{"use strict";r.d(t,{P_:()=>p,Mt:()=>v,C5:()=>d,DL:()=>y,OP:()=>N,lF:()=>B,Yu:()=>A,Dg:()=>h,CX:()=>f,GE:()=>w,sU:()=>M});var n={};r.r(n),r.d(n,{agent:()=>x,match:()=>j,version:()=>O});var i=r(6797),o=r(909),a=r(8610);class s{constructor(e,t){try{if(!e||"object"!=typeof e)return(0,a.Z)("New setting a Configurable requires an object as input");if(!t||"object"!=typeof t)return(0,a.Z)("Setting a Configurable requires a model to set its initial properties");Object.assign(this,t),Object.entries(e).forEach((e=>{let[t,r]=e;const n=(0,o.q)(t);n.length&&r&&"object"==typeof r&&n.forEach((e=>{e in r&&((0,a.Z)('"'.concat(e,'" is a protected attribute and can not be changed in feature ').concat(t,".  It will have no effect.")),delete r[e])})),this[t]=r}))}catch(e){(0,a.Z)("An error occured while setting a Configurable",e)}}}const c={beacon:i.ce.beacon,errorBeacon:i.ce.errorBeacon,licenseKey:void 0,applicationID:void 0,sa:void 0,queueTime:void 0,applicationTime:void 0,ttGuid:void 0,user:void 0,account:void 0,product:void 0,extra:void 0,jsAttributes:{},userAttributes:void 0,atts:void 0,transactionName:void 0,tNamePlain:void 0},u={};function d(e){if(!e)throw new Error("All info objects require an agent identifier!");if(!u[e])throw new Error("Info for ".concat(e," was never set"));return u[e]}function f(e,t){if(!e)throw new Error("All info objects require an agent identifier!");u[e]=new s(t,c),(0,i.Qy)(e,u[e],"info")}const l={allow_bfcache:!0,privacy:{cookies_enabled:!0},ajax:{deny_list:void 0,enabled:!0,harvestTimeSeconds:10},distributed_tracing:{enabled:void 0,exclude_newrelic_header:void 0,cors_use_newrelic_header:void 0,cors_use_tracecontext_headers:void 0,allowed_origins:void 0},ssl:void 0,obfuscate:void 0,jserrors:{enabled:!0,harvestTimeSeconds:10},metrics:{enabled:!0,harvestTimeSeconds:10},page_action:{enabled:!0,harvestTimeSeconds:30},page_view_event:{enabled:!0},page_view_timing:{enabled:!0,harvestTimeSeconds:30},session_trace:{enabled:!0,harvestTimeSeconds:10},spa:{enabled:!0,harvestTimeSeconds:10}},g={};function p(e){if(!e)throw new Error("All configuration objects require an agent identifier!");if(!g[e])throw new Error("Configuration for ".concat(e," was never set"));return g[e]}function h(e,t){if(!e)throw new Error("All configuration objects require an agent identifier!");g[e]=new s(t,l),(0,i.Qy)(e,g[e],"config")}function v(e,t){if(!e)throw new Error("All configuration objects require an agent identifier!");var r=p(e);if(r){for(var n=t.split("."),i=0;i<n.length-1;i++)if("object"!=typeof(r=r[n[i]]))return;r=r[n[n.length-1]]}return r}const m={accountID:void 0,trustKey:void 0,agentID:void 0,licenseKey:void 0,applicationID:void 0,xpid:void 0},b={};function y(e){if(!e)throw new Error("All loader-config objects require an agent identifier!");if(!b[e])throw new Error("LoaderConfig for ".concat(e," was never set"));return b[e]}function w(e,t){if(!e)throw new Error("All loader-config objects require an agent identifier!");b[e]=new s(t,m),(0,i.Qy)(e,b[e],"loader_config")}const A=(0,i.mF)().o;var E=r(2053),x=null,O=null;if(navigator.userAgent){var T=navigator.userAgent,S=T.match(/Version\/(\S+)\s+Safari/);S&&-1===T.indexOf("Chrome")&&-1===T.indexOf("Chromium")&&(x="Safari",O=S[1])}function j(e,t){if(!x)return!1;if(e!==x)return!1;if(!t)return!0;if(!O)return!1;for(var r=O.split("."),n=t.split("."),i=0;i<n.length;i++)if(n[i]!==r[i])return!1;return!0}var D=r(5526),_=r(2374);const k="NRBA_SESSION_ID";function P(){if(!_.il)return null;try{let e;return null===(e=window.sessionStorage.getItem(k))&&(e=(0,D.ky)(16),window.sessionStorage.setItem(k,e)),e}catch(e){return null}}var I=r(8226);const C=e=>({customTransaction:void 0,disabled:!1,isolatedBacklog:!1,loaderType:void 0,maxBytes:3e4,offset:(0,E.yf)(),onerror:void 0,origin:""+_._A.location,ptid:void 0,releaseIds:{},sessionId:1==v(e,"privacy.cookies_enabled")?P():null,xhrWrappable:"function"==typeof _._A.XMLHttpRequest?.prototype?.addEventListener,userAgent:n,version:I.q}),R={};function N(e){if(!e)throw new Error("All runtime objects require an agent identifier!");if(!R[e])throw new Error("Runtime for ".concat(e," was never set"));return R[e]}function M(e,t){if(!e)throw new Error("All runtime objects require an agent identifier!");R[e]=new s(t,C(e)),(0,i.Qy)(e,R[e],"runtime")}function B(e){return function(e){try{const t=d(e);return!!t.licenseKey&&!!t.errorBeacon&&!!t.applicationID}catch(e){return!1}}(e)}},8226:(e,t,r)=>{"use strict";r.d(t,{q:()=>n});const n="1226.PROD"},9557:(e,t,r)=>{"use strict";r.d(t,{w:()=>o});var n=r(8610);const i={agentIdentifier:""};class o{constructor(e){try{if("object"!=typeof e)return(0,n.Z)("shared context requires an object as input");this.sharedContext={},Object.assign(this.sharedContext,i),Object.entries(e).forEach((e=>{let[t,r]=e;Object.keys(i).includes(t)&&(this.sharedContext[t]=r)}))}catch(e){(0,n.Z)("An error occured while setting SharedContext",e)}}}},4329:(e,t,r)=>{"use strict";r.d(t,{L:()=>d,R:()=>c});var n=r(3752),i=r(7022),o=r(4045),a=r(2325);const s={};function c(e,t){const r={staged:!1,priority:a.p[t]||0};u(e),s[e].get(t)||s[e].set(t,r)}function u(e){e&&(s[e]||(s[e]=new Map))}function d(){let e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:"",t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"feature";if(u(e),!e||!s[e].get(t))return a(t);s[e].get(t).staged=!0;const r=Array.from(s[e]);function a(t){const r=e?n.ee.get(e):n.ee,a=o.X.handlers;if(r.backlog&&a){var s=r.backlog[t],c=a[t];if(c){for(var u=0;s&&u<s.length;++u)f(s[u],c);(0,i.D)(c,(function(e,t){(0,i.D)(t,(function(t,r){r[0].on(e,r[1])}))}))}delete a[t],r.backlog[t]=null,r.emit("drain-"+t,[])}}r.every((e=>{let[t,r]=e;return r.staged}))&&(r.sort(((e,t)=>e[1].priority-t[1].priority)),r.forEach((e=>{let[t]=e;a(t)})))}function f(e,t){var r=e[1];(0,i.D)(t[r],(function(t,r){var n=e[0];if(r[0]===n){var i=r[1],o=e[3],a=e[2];i.apply(o,a)}}))}},3752:(e,t,r)=>{"use strict";r.d(t,{c:()=>f,ee:()=>u});var n=r(6797),i=r(3916),o=r(7022),a=r(6562),s="nr@context";let c=(0,n.fP)();var u;function d(){}function f(e){return(0,i.X)(e,s,l)}function l(){return new d}function g(){(u.backlog.api||u.backlog.feature)&&(u.aborted=!0,u.backlog={})}c.ee?u=c.ee:(u=function e(t,r){var n={},c={},f={},p=!1;try{p=16===r.length&&(0,a.OP)(r).isolatedBacklog}catch(e){}var h={on:b,addEventListener:b,removeEventListener:y,emit:m,get:A,listeners:w,context:v,buffer:E,abort:g,aborted:!1,isBuffering:x,debugId:r,backlog:p?{}:t&&"object"==typeof t.backlog?t.backlog:{}};return h;function v(e){return e&&e instanceof d?e:e?(0,i.X)(e,s,l):l()}function m(e,r,n,i,o){if(!1!==o&&(o=!0),!u.aborted||i){t&&o&&t.emit(e,r,n);for(var a=v(n),s=w(e),d=s.length,f=0;f<d;f++)s[f].apply(a,r);var l=O()[c[e]];return l&&l.push([h,e,r,a]),a}}function b(e,t){n[e]=w(e).concat(t)}function y(e,t){var r=n[e];if(r)for(var i=0;i<r.length;i++)r[i]===t&&r.splice(i,1)}function w(e){return n[e]||[]}function A(t){return f[t]=f[t]||e(h,t)}function E(e,t){var r=O();h.aborted||(0,o.D)(e,(function(e,n){t=t||"feature",c[n]=t,t in r||(r[t]=[])}))}function x(e){return!!O()[c[e]]}function O(){return h.backlog}}(void 0,"globalEE"),c.ee=u)},9252:(e,t,r)=>{"use strict";r.d(t,{E:()=>n,p:()=>i});var n=r(3752).ee.get("handle");function i(e,t,r,i,o){o?(o.buffer([e],i),o.emit(e,t,r)):(n.buffer([e],i),n.emit(e,t,r))}},4045:(e,t,r)=>{"use strict";r.d(t,{X:()=>o});var n=r(9252);o.on=a;var i=o.handlers={};function o(e,t,r,o){a(o||n.E,i,e,t,r)}function a(e,t,r,i,o){o||(o="feature"),e||(e=n.E);var a=t[o]=t[o]||{};(a[r]=a[r]||[]).push([e,i])}},8544:(e,t,r)=>{"use strict";r.d(t,{bP:()=>s,iz:()=>c,m$:()=>a});var n=r(2374);let i=!1,o=!1;try{const e={get passive(){return i=!0,!1},get signal(){return o=!0,!1}};n._A.addEventListener("test",null,e),n._A.removeEventListener("test",null,e)}catch(e){}function a(e,t){return i||o?{capture:!!e,passive:i,signal:t}:!!e}function s(e,t){let r=arguments.length>2&&void 0!==arguments[2]&&arguments[2];window.addEventListener(e,t,a(r))}function c(e,t){let r=arguments.length>2&&void 0!==arguments[2]&&arguments[2];document.addEventListener(e,t,a(r))}},5526:(e,t,r)=>{"use strict";r.d(t,{Ht:()=>a,M:()=>o,Rl:()=>i,ky:()=>s});var n=r(2374);function i(){var e=null,t=0,r=n._A?.crypto||n._A?.msCrypto;function i(){return e?15&e[t++]:16*Math.random()|0}r&&r.getRandomValues&&(e=r.getRandomValues(new Uint8Array(31)));for(var o,a="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",s="",c=0;c<a.length;c++)s+="x"===(o=a[c])?i().toString(16):"y"===o?(o=3&i()|8).toString(16):o;return s}function o(){return s(16)}function a(){return s(32)}function s(e){var t=null,r=0,n=self.crypto||self.msCrypto;n&&n.getRandomValues&&Uint8Array&&(t=n.getRandomValues(new Uint8Array(31)));for(var i=[],o=0;o<e;o++)i.push(a().toString(16));return i.join("");function a(){return t?15&t[r++]:16*Math.random()|0}}},2053:(e,t,r)=>{"use strict";r.d(t,{nb:()=>c,os:()=>u,yf:()=>s,zO:()=>a});var n=r(7145),i=(new Date).getTime(),o=i;function a(){return n.G&&performance.now?Math.round(performance.now()):(i=Math.max((new Date).getTime(),i))-o}function s(){return i}function c(e){o=e}function u(){return o}},7145:(e,t,r)=>{"use strict";r.d(t,{G:()=>n});const n=void 0!==r(2374)._A?.performance?.timing?.navigationStart},6625:(e,t,r)=>{"use strict";r.d(t,{s:()=>c,v:()=>u});var n=r(8283),i=r(9071),o=r(2053),a=r(7145),s=r(2374);let c=!0;function u(e){var t=function(){if(i.I&&i.I<9)return;if(a.G)return c=!1,s._A?.performance?.timing?.navigationStart}();t&&((0,n.B)(e,"starttime",t),(0,o.nb)(t))}},8283:(e,t,r)=>{"use strict";r.d(t,{B:()=>o,L:()=>a});var n=r(2053),i={};function o(e,t,r){void 0===r&&(r=(0,n.zO)()+(0,n.os)()),i[e]=i[e]||{},i[e][t]=r}function a(e,t,r,n){const o=e.sharedContext.agentIdentifier;var a=i[o]?.[r],s=i[o]?.[n];void 0!==a&&void 0!==s&&e.store("measures",t,{value:s-a})}},9548:(e,t,r)=>{"use strict";r.d(t,{T:()=>i});var n=r(2374);const i={isFileProtocol:function(){let e=Boolean("file:"===(0,n.lW)()?.location?.protocol);e&&(i.supportabilityMetricSent=!0);return e},supportabilityMetricSent:!1}},8610:(e,t,r)=>{"use strict";function n(e,t){console&&console.warn&&"function"==typeof console.warn&&(console.warn("New Relic: ".concat(e)),t&&console.warn(t))}r.d(t,{Z:()=>n})},3916:(e,t,r)=>{"use strict";r.d(t,{X:()=>i});var n=Object.prototype.hasOwnProperty;function i(e,t,r){if(n.call(e,t))return e[t];var i=r();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:i,writable:!0,enumerable:!1}),i}catch(e){}return e[t]=i,i}},2374:(e,t,r)=>{"use strict";r.d(t,{_A:()=>o,il:()=>n,lW:()=>a,v6:()=>i});const n=Boolean("undefined"!=typeof window&&window.document),i=Boolean("undefined"!=typeof WorkerGlobalScope&&self.navigator instanceof WorkerNavigator);let o=(()=>{if(n)return window;if(i){if("undefined"!=typeof globalThis&&globalThis instanceof WorkerGlobalScope)return globalThis;if(self instanceof WorkerGlobalScope)return self}throw new Error('New Relic browser agent shutting down due to error: Unable to locate global scope. This is possibly due to code redefining browser global variables like "self" and "window".')})();function a(){return o}},7022:(e,t,r)=>{"use strict";r.d(t,{D:()=>i});var n=Object.prototype.hasOwnProperty;function i(e,t){var r=[],i="",o=0;for(i in e)n.call(e,i)&&(r[o]=t(i,e[i]),o+=1);return r}},9226:(e,t,r)=>{"use strict";r.d(t,{$c:()=>u,Ng:()=>d,RR:()=>c});var n=r(6562),i=r(9557),o=r(9548),a=r(8610),s={regex:/^file:\/\/(.*)/,replacement:"file://OBFUSCATED"};class c extends i.w{constructor(e){super(e)}shouldObfuscate(){return u(this.sharedContext.agentIdentifier).length>0}obfuscateString(e){if(!e||"string"!=typeof e)return e;for(var t=u(this.sharedContext.agentIdentifier),r=e,n=0;n<t.length;n++){var i=t[n].regex,o=t[n].replacement||"*";r=r.replace(i,o)}return r}}function u(e){var t=[],r=(0,n.Mt)(e,"obfuscate")||[];return t=t.concat(r),o.T.isFileProtocol()&&t.push(s),t}function d(e){for(var t=!1,r=!1,n=0;n<e.length;n++){"regex"in e[n]?"string"!=typeof e[n].regex&&e[n].regex.constructor!==RegExp&&((0,a.Z)('An obfuscation replacement rule contains a "regex" value with an invalid type (must be a string or RegExp)'),r=!0):((0,a.Z)('An obfuscation replacement rule was detected missing a "regex" value.'),r=!0);var i=e[n].replacement;i&&"string"!=typeof i&&((0,a.Z)('An obfuscation replacement rule contains a "replacement" value with an invalid type (must be a string)'),t=!0)}return!t&&!r}},2650:(e,t,r)=>{"use strict";r.d(t,{K:()=>a,b:()=>o});var n=r(8544);function i(){return"undefined"==typeof document||"complete"===document.readyState}function o(e,t){if(i())return e();(0,n.bP)("load",e,t)}function a(e){if(i())return e();(0,n.iz)("DOMContentLoaded",e)}},6797:(e,t,r)=>{"use strict";r.d(t,{EZ:()=>u,Qy:()=>c,ce:()=>o,fP:()=>a,gG:()=>d,mF:()=>s});var n=r(2053),i=r(2374);function a(){return i._A.NREUM||(i._A.NREUM={}),void 0===i._A.newrelic&&(i._A.newrelic=i._A.NREUM),i._A.NREUM}function s(){let e=a();return e.o||(e.o={ST:i._A.setTimeout,SI:i._A.setImmediate,CT:i._A.clearTimeout,XHR:i._A.XMLHttpRequest,REQ:i._A.Request,EV:i._A.Event,PR:i._A.Promise,MO:i._A.MutationObserver,FETCH:i._A.fetch}),e}function c(e,t,r){let i=a();const o=i.initializedAgents||{},s=o[e]||{};return Object.keys(s).length||(s.initializedAt={ms:(0,n.zO)(),date:new Date}),i.initializedAgents={...o,[e]:{...s,[r]:t}},i}function u(e,t){a()[e]=t}function d(){return function(){let e=a();const t=e.info||{};e.info={beacon:o.beacon,errorBeacon:o.errorBeacon,...t}}(),function(){let e=a();const t=e.init||{};e.init={...t}}(),s(),function(){let e=a();const t=e.loader_config||{};e.loader_config={...t}}(),a()}},6998:(e,t,r)=>{"use strict";r.d(t,{N:()=>i,e:()=>o});var n=r(8544);function i(e){let t=arguments.length>1&&void 0!==arguments[1]&&arguments[1];return void(0,n.iz)("visibilitychange",(function(){if(t){if("hidden"!=document.visibilityState)return;e()}e(document.visibilityState)}))}function o(){return"hidden"===document.visibilityState?-1:1/0}},6034:(e,t,r)=>{"use strict";r.d(t,{t:()=>n});const n=r(2325).D.metrics},600:(e,t,r)=>{"use strict";r.r(t),r.d(t,{Instrument:()=>O,constants:()=>T});var n=r(9252),i=r(4045),o=r(6114),a=r(2374),s={REACT:"React",ANGULAR:"Angular",ANGULARJS:"AngularJS",BACKBONE:"Backbone",EMBER:"Ember",VUE:"Vue",METEOR:"Meteor",ZEPTO:"Zepto",JQUERY:"Jquery"};function c(){if(!a.il)return[];var e=[];try{(function(){try{if(window.React||window.ReactDOM||window.ReactRedux)return!0;if(document.querySelector("[data-reactroot], [data-reactid]"))return!0;for(var e=document.querySelectorAll("body > div"),t=0;t<e.length;t++)if(Object.keys(e[t]).indexOf("_reactRootContainer")>=0)return!0;return!1}catch(e){return!1}})()&&e.push(s.REACT),function(){try{return!!window.angular||(!!document.querySelector(".ng-binding, [ng-app], [data-ng-app], [ng-controller], [data-ng-controller], [ng-repeat], [data-ng-repeat]")||!!document.querySelector('script[src*="angular.js"], script[src*="angular.min.js"]'))}catch(e){return!1}}()&&e.push(s.ANGULARJS),function(){try{return!!(window.hasOwnProperty("ng")&&window.ng.hasOwnProperty("coreTokens")&&window.ng.coreTokens.hasOwnProperty("NgZone"))||!!document.querySelectorAll("[ng-version]").length}catch(e){return!1}}()&&e.push(s.ANGULAR),window.Backbone&&e.push(s.BACKBONE),window.Ember&&e.push(s.EMBER),window.Vue&&e.push(s.VUE),window.Meteor&&e.push(s.METEOR),window.Zepto&&e.push(s.ZEPTO),window.jQuery&&e.push(s.JQUERY)}catch(e){}return e}var u=r(9548),d=r(9226),f=r(8226),l=r(2650),g=r(8544),p=r(6562),h=r(8610);const v={dedicated:Boolean(a._A?.Worker),shared:Boolean(a._A?.SharedWorker),service:Boolean(a._A?.navigator?.serviceWorker)};let m,b,y;var w=r(6034);var A,E,x;class O extends o.S{constructor(e,t){var r;let n=!(arguments.length>2&&void 0!==arguments[2])||arguments[2];super(e,t,w.t,n),r=this,this.singleChecks(),this.eachSessionChecks(),(0,i.X)("record-supportability",(function(){return r.recordSupportability(...arguments)}),this.featureName,this.ee),(0,i.X)("record-custom",(function(){return r.recordCustom(...arguments)}),this.featureName,this.ee),this.importAggregator()}recordSupportability(e,t){var r=["sm",e,{name:e},t];return(0,n.p)("storeMetric",r,null,this.featureName,this.ee),r}recordCustom(e,t){var r=["cm",e,{name:e},t];return(0,n.p)("storeEventMetrics",r,null,this.featureName,this.ee),r}singleChecks(){this.recordSupportability("Generic/Version/".concat(f.q,"/Detected"));const{loaderType:e}=(0,p.OP)(this.agentIdentifier);e&&this.recordSupportability("Generic/LoaderType/".concat(e,"/Detected")),a.il&&(0,l.K)((()=>{c().forEach((e=>{this.recordSupportability("Framework/"+e+"/Detected")}))})),u.T.isFileProtocol()&&(this.recordSupportability("Generic/FileProtocol/Detected"),u.T.supportabilityMetricSent=!0);const t=(0,d.$c)(this.agentIdentifier);t.length>0&&this.recordSupportability("Generic/Obfuscate/Detected"),t.length>0&&!(0,d.Ng)(t)&&this.recordSupportability("Generic/Obfuscate/Invalid"),function(e){if(!m){if(v.dedicated){m=Worker;try{a._A.Worker=r(m,"Dedicated")}catch(e){o(e,"Dedicated")}if(v.shared){b=SharedWorker;try{a._A.SharedWorker=r(b,"Shared")}catch(e){o(e,"Shared")}}else n("Shared");if(v.service){y=navigator.serviceWorker.register;try{a._A.navigator.serviceWorker.register=(t=y,function(){for(var e=arguments.length,r=new Array(e),n=0;n<e;n++)r[n]=arguments[n];return i("Service",r[1]?.type),t.apply(navigator.serviceWorker,r)})}catch(e){o(e,"Service")}}else n("Service");var t;return}n("All")}function r(e,t){return"undefined"==typeof Proxy?e:new Proxy(e,{construct:(e,r)=>(i(t,r[1]?.type),new e(...r))})}function n(t){a.v6||e("Workers/".concat(t,"/Unavailable"))}function i(t,r){e("Workers/".concat(t,"module"===r?"/Module":"/Classic"))}function o(t,r){e("Workers/".concat(r,"/SM/Unsupported")),(0,h.Z)("NR Agent: Unable to capture ".concat(r," workers."),t)}}(this.recordSupportability.bind(this))}eachSessionChecks(){a.il&&(0,g.bP)("pageshow",(e=>{e.persisted&&this.recordSupportability("Generic/BFCache/PageRestored")}))}}A=O,E="featureName",x=w.t,(E=function(e){var t=function(e,t){if("object"!=typeof e||null===e)return e;var r=e[Symbol.toPrimitive];if(void 0!==r){var n=r.call(e,t||"default");if("object"!=typeof n)return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return("string"===t?String:Number)(e)}(e,"string");return"symbol"==typeof t?t:String(t)}(E))in A?Object.defineProperty(A,E,{value:x,enumerable:!0,configurable:!0,writable:!0}):A[E]=x;var T={SUPPORTABILITY_METRIC:"sm",CUSTOM_METRIC:"cm"}},2484:(e,t,r)=>{"use strict";r.d(t,{t:()=>n});const n=r(2325).D.pageViewEvent},5637:(e,t,r)=>{"use strict";r.r(t),r.d(t,{Instrument:()=>h});var n,i,o,a=r(9252),s=r(2053),c=r(8283),u=r(6625),d=r(6114),f=r(2650),l=r(2484),g=r(2325),p=r(2374);class h extends d.S{constructor(e,t){let r=!(arguments.length>2&&void 0!==arguments[2])||arguments[2];super(e,t,l.t,r),p.il&&((0,u.v)(e),(0,c.B)(e,"firstbyte",(0,s.yf)()),(0,f.K)((()=>this.measureDomContentLoaded())),(0,f.b)((()=>this.measureWindowLoaded()),!0),this.importAggregator())}measureWindowLoaded(){var e=(0,s.zO)();(0,c.B)(this.agentIdentifier,"onload",e+(0,s.os)()),(0,a.p)("timing",["load",e],void 0,g.D.pageViewTiming,this.ee)}measureDomContentLoaded(){(0,c.B)(this.agentIdentifier,"domContent",(0,s.zO)()+(0,s.os)())}}n=h,i="featureName",o=l.t,(i=function(e){var t=function(e,t){if("object"!=typeof e||null===e)return e;var r=e[Symbol.toPrimitive];if(void 0!==r){var n=r.call(e,t||"default");if("object"!=typeof n)return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return("string"===t?String:Number)(e)}(e,"string");return"symbol"==typeof t?t:String(t)}(i))in n?Object.defineProperty(n,i,{value:o,enumerable:!0,configurable:!0,writable:!0}):n[i]=o},6382:(e,t,r)=>{"use strict";r.d(t,{t:()=>n});const n=r(2325).D.pageViewTiming},7817:(e,t,r)=>{"use strict";r.r(t),r.d(t,{Instrument:()=>h});var n,i,o,a=r(9252),s=r(6998),c=r(8544),u=r(2053),d=r(6562),f=r(6114),l=r(6382),g=r(2325),p=r(2374);class h extends f.S{constructor(e,t){var r;let n=!(arguments.length>2&&void 0!==arguments[2])||arguments[2];if(super(e,t,l.t,n),r=this,p.il){if(this.pageHiddenTime=(0,s.e)(),this.performanceObserver,this.lcpPerformanceObserver,this.clsPerformanceObserver,this.fiRecorded=!1,"PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){this.performanceObserver=new PerformanceObserver((function(){return r.perfObserver(...arguments)}));try{this.performanceObserver.observe({entryTypes:["paint"]})}catch(e){}this.lcpPerformanceObserver=new PerformanceObserver((function(){return r.lcpObserver(...arguments)}));try{this.lcpPerformanceObserver.observe({entryTypes:["largest-contentful-paint"]})}catch(e){}this.clsPerformanceObserver=new PerformanceObserver((function(){return r.clsObserver(...arguments)}));try{this.clsPerformanceObserver.observe({type:"layout-shift",buffered:!0})}catch(e){}}this.fiRecorded=!1;["click","keydown","mousedown","pointerdown","touchstart"].forEach((e=>{(0,c.iz)(e,(function(){return r.captureInteraction(...arguments)}))})),(0,s.N)((()=>{this.pageHiddenTime=(0,u.zO)(),(0,a.p)("docHidden",[this.pageHiddenTime],void 0,g.D.pageViewTiming,this.ee)}),!0),(0,c.bP)("pagehide",(()=>(0,a.p)("winPagehide",[(0,u.zO)()],void 0,g.D.pageViewTiming,this.ee))),this.importAggregator()}}perfObserver(e,t){e.getEntries().forEach((e=>{"first-paint"===e.name?(0,a.p)("timing",["fp",Math.floor(e.startTime)],void 0,g.D.pageViewTiming,this.ee):"first-contentful-paint"===e.name&&(0,a.p)("timing",["fcp",Math.floor(e.startTime)],void 0,g.D.pageViewTiming,this.ee)}))}lcpObserver(e,t){var r=e.getEntries();if(r.length>0){var n=r[r.length-1];if(this.pageHiddenTime<n.startTime)return;var i=[n],o=this.addConnectionAttributes({});o&&i.push(o),(0,a.p)("lcp",i,void 0,g.D.pageViewTiming,this.ee)}}clsObserver(e){e.getEntries().forEach((e=>{e.hadRecentInput||(0,a.p)("cls",[e],void 0,g.D.pageViewTiming,this.ee)}))}addConnectionAttributes(e){var t=navigator.connection||navigator.mozConnection||navigator.webkitConnection;if(t)return t.type&&(e["net-type"]=t.type),t.effectiveType&&(e["net-etype"]=t.effectiveType),t.rtt&&(e["net-rtt"]=t.rtt),t.downlink&&(e["net-dlink"]=t.downlink),e}captureInteraction(e){if(e instanceof d.Yu.EV&&!this.fiRecorded){var t=Math.round(e.timeStamp),r={type:e.type};this.addConnectionAttributes(r),t<=(0,u.zO)()?r.fid=(0,u.zO)()-t:t>(0,u.os)()&&t<=Date.now()?(t-=(0,u.os)(),r.fid=(0,u.zO)()-t):t=(0,u.zO)(),this.fiRecorded=!0,(0,a.p)("timing",["fi",t,r],void 0,g.D.pageViewTiming,this.ee)}}}n=h,i="featureName",o=l.t,(i=function(e){var t=function(e,t){if("object"!=typeof e||null===e)return e;var r=e[Symbol.toPrimitive];if(void 0!==r){var n=r.call(e,t||"default");if("object"!=typeof n)return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return("string"===t?String:Number)(e)}(e,"string");return"symbol"==typeof t?t:String(t)}(i))in n?Object.defineProperty(n,i,{value:o,enumerable:!0,configurable:!0,writable:!0}):n[i]=o},1509:(e,t,r)=>{"use strict";r.d(t,{W:()=>s});var n=r(6562),i=r(3752),o=r(2384),a=r(6797);class s{constructor(e,t,r){this.agentIdentifier=e,this.aggregator=t,this.ee=i.ee.get(e,(0,n.OP)(this.agentIdentifier).isolatedBacklog),this.featureName=r,this.blocked=!1,this.checkConfiguration()}checkConfiguration(){if(!(0,n.lF)(this.agentIdentifier)){let e={...(0,a.gG)().info?.jsAttributes};try{e={...e,...(0,n.C5)(this.agentIdentifier)?.jsAttributes}}catch(e){}(0,o.j)(this.agentIdentifier,{...(0,a.gG)(),info:{...(0,a.gG)().info,jsAttributes:e}})}}}},6114:(e,t,r)=>{"use strict";r.d(t,{S:()=>c});var n=r(4329),i=r(1509),o=r(2650),a=r(2374),s=r(8610);class c extends i.W{constructor(e,t,r){let i=!(arguments.length>3&&void 0!==arguments[3])||arguments[3];super(e,t,r),this.hasAggregator=!1,this.auto=i,this.abortHandler,i&&(0,n.R)(e,r)}importAggregator(){if(this.hasAggregator||!this.auto)return;this.hasAggregator=!0;const e=async()=>{try{const{lazyLoader:e}=await r.e(729).then(r.bind(r,8110)),{Aggregate:t}=await e(this.featureName,"aggregate");new t(this.agentIdentifier,this.aggregator)}catch(e){(0,s.Z)("Downloading ".concat(this.featureName," failed...")),this.abortHandler?.()}};a.v6?e():(0,o.b)((()=>e()),!0)}}},2384:(e,t,r)=>{"use strict";r.d(t,{j:()=>y});var n=r(8683),i=r.n(n),o=r(2325),a=r(6562),s=r(9252),c=r(7022),u=r(3752),d=r(2053),f=r(4329),l=r(2650),g=r(2374),p=r(8610);function h(e){["setErrorHandler","finished","addToTrace","inlineHit","addRelease","addPageAction","setCurrentRouteName","setPageViewName","setCustomAttribute","interaction","noticeError"].forEach((t=>{e[t]=function(){for(var r=arguments.length,n=new Array(r),i=0;i<r;i++)n[i]=arguments[i];return function(t){for(var r=arguments.length,n=new Array(r>1?r-1:0),i=1;i<r;i++)n[i-1]=arguments[i];Object.values(e.initializedAgents).forEach((e=>{e.exposed&&e.api[t]&&e.api[t](...n)}))}(t,...n)}}))}var v=r(6797);const m={stn:[o.D.sessionTrace],err:[o.D.jserrors,o.D.metrics],ins:[o.D.pageAction],spa:[o.D.spa]};const b={};function y(e){let t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},n=arguments.length>2?arguments[2]:void 0,y=arguments.length>3?arguments[3]:void 0,{init:w,info:A,loader_config:E,runtime:x={loaderType:n},exposed:O=!0}=t;const T=(0,v.gG)();let S={};return A||(w=T.init,A=T.info,E=T.loader_config,S=T),g.v6&&(A.jsAttributes={...A.jsAttributes,isWorker:!0}),(0,a.CX)(e,A),(0,a.Dg)(e,w||{}),(0,a.GE)(e,E||{}),(0,a.sU)(e,x),function(e,t,n){n||(0,f.R)(e,"api"),h(t);var v=u.ee.get(e),m=v.get("tracer"),b="api-",y=b+"ixn-";function w(){}(0,c.D)(["setErrorHandler","finished","addToTrace","inlineHit","addRelease"],(function(e,r){t[r]=E(b,r,!0,"api")})),t.addPageAction=E(b,"addPageAction",!0,o.D.pageAction),t.setCurrentRouteName=E(b,"routeName",!0,o.D.spa),t.setPageViewName=function(t,r){if("string"==typeof t)return"/"!==t.charAt(0)&&(t="/"+t),(0,a.OP)(e).customTransaction=(r||"http://custom.transaction")+t,E(b,"setPageViewName",!0,"api")()},t.setCustomAttribute=function(t,r){const n=(0,a.C5)(e);return(0,a.CX)(e,{...n,jsAttributes:{...n.jsAttributes,[t]:r}}),E(b,"setCustomAttribute",!0,"api")()},t.interaction=function(){return(new w).get()};var A=w.prototype={createTracer:function(e,t){var r={},n=this,i="function"==typeof t;return(0,s.p)(y+"tracer",[(0,d.zO)(),e,r],n,o.D.spa,v),function(){if(m.emit((i?"":"no-")+"fn-start",[(0,d.zO)(),n,i],r),i)try{return t.apply(this,arguments)}catch(e){throw m.emit("fn-err",[arguments,this,"string"==typeof e?new Error(e):e],r),e}finally{m.emit("fn-end",[(0,d.zO)()],r)}}}};function E(e,t,r,n){return function(){return(0,s.p)("record-supportability",["API/"+t+"/called"],void 0,o.D.metrics,v),(0,s.p)(e+t,[(0,d.zO)()].concat(i()(arguments)),r?null:this,n,v),r?void 0:this}}function x(){r.e(439).then(r.bind(r,5692)).then((t=>{let{setAPI:r}=t;r(e),(0,f.L)(e,"api")})).catch((()=>(0,p.Z)("Downloading runtime APIs failed...")))}(0,c.D)("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),(function(e,t){A[t]=E(y,t,void 0,o.D.spa)})),t.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),(0,s.p)("record-supportability",["API/noticeError/called"],void 0,o.D.metrics,v),(0,s.p)("err",[e,(0,d.zO)(),!1,t],void 0,o.D.jserrors,v)},g.v6?x():(0,l.b)((()=>x()),!0)}(e,S,y),(0,v.Qy)(e,T,"api"),(0,v.Qy)(e,O,"exposed"),g.v6||((0,v.EZ)("activatedFeatures",b),(0,v.EZ)("setToken",(t=>function(e,t){var r=u.ee.get(t);e&&"object"==typeof e&&((0,c.D)(e,(function(e,t){if(!t)return(m[e]||[]).forEach((t=>{(0,s.p)("block-"+e,[],void 0,t,r)}));b[e]||((0,s.p)("feat-"+e,[],void 0,m[e],r),b[e]=!0)})),(0,f.L)(t,o.D.pageViewEvent))}(t,e)))),S}},909:(e,t,r)=>{"use strict";r.d(t,{Z:()=>i,q:()=>o});var n=r(2325);function i(e){switch(e){case n.D.ajax:return[n.D.jserrors];case n.D.sessionTrace:return[n.D.ajax,n.D.pageViewEvent];case n.D.pageViewTiming:return[n.D.pageViewEvent];default:return[]}}function o(e){return e===n.D.jserrors?[]:["auto"]}},2325:(e,t,r)=>{"use strict";r.d(t,{D:()=>n,p:()=>i});const n={ajax:"ajax",jserrors:"jserrors",metrics:"metrics",pageAction:"page_action",pageViewEvent:"page_view_event",pageViewTiming:"page_view_timing",sessionTrace:"session_trace",spa:"spa"},i={[n.pageViewEvent]:1,[n.pageViewTiming]:2,[n.metrics]:3,[n.jserrors]:4,[n.ajax]:5,[n.sessionTrace]:6,[n.pageAction]:7,[n.spa]:8}},8683:e=>{e.exports=function(e,t,r){t||(t=0),void 0===r&&(r=e?e.length:0);for(var n=-1,i=r-t||0,o=Array(i<0?0:i);++n<i;)o[n]=e[t+n];return o}}},n={};function i(e){var t=n[e];if(void 0!==t)return t.exports;var o=n[e]={exports:{}};return r[e](o,o.exports,i),o.exports}i.m=r,i.n=e=>{var t=e&&e.__esModule?()=>e.default:()=>e;return i.d(t,{a:t}),t},i.d=(e,t)=>{for(var r in t)i.o(t,r)&&!i.o(e,r)&&Object.defineProperty(e,r,{enumerable:!0,get:t[r]})},i.f={},i.e=e=>Promise.all(Object.keys(i.f).reduce(((t,r)=>(i.f[r](e,t),t)),[])),i.u=e=>(({78:"page_action-aggregate",147:"metrics-aggregate",193:"session_trace-aggregate",225:"ajax-instrument",317:"jserrors-aggregate",348:"page_view_timing-aggregate",439:"async-api",578:"jserrors-instrument",729:"lazy-loader",757:"session_trace-instrument",786:"page_view_event-aggregate",873:"spa-aggregate",876:"spa-instrument",898:"ajax-aggregate",908:"page_action-instrument"}[e]||e)+"."+{78:"92657d87",118:"34a59fa6",147:"7dcaee1b",193:"401d5d17",225:"25fe7245",264:"bcaf68fc",317:"d078b949",348:"6b3fec7f",439:"6bb277af",578:"c8f23c89",729:"48127245",757:"98d3280d",786:"29613e65",873:"58d1fc78",876:"364406a9",898:"178bdaa3",908:"64360627"}[e]+"-1226.min.js"),i.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),e={},t="NRBA:",i.l=(r,n,o,a)=>{if(e[r])e[r].push(n);else{var s,c;if(void 0!==o)for(var u=document.getElementsByTagName("script"),d=0;d<u.length;d++){var f=u[d];if(f.getAttribute("src")==r||f.getAttribute("data-webpack")==t+o){s=f;break}}s||(c=!0,(s=document.createElement("script")).charset="utf-8",s.timeout=120,i.nc&&s.setAttribute("nonce",i.nc),s.setAttribute("data-webpack",t+o),s.src=r),e[r]=[n];var l=(t,n)=>{s.onerror=s.onload=null,clearTimeout(g);var i=e[r];if(delete e[r],s.parentNode&&s.parentNode.removeChild(s),i&&i.forEach((e=>e(n))),t)return t(n)},g=setTimeout(l.bind(null,void 0,{type:"timeout",target:s}),12e4);s.onerror=l.bind(null,s.onerror),s.onload=l.bind(null,s.onload),c&&document.head.appendChild(s)}},i.r=e=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},i.p="https://js-agent.newrelic.com/",(()=>{var e={831:0,744:0};i.f.j=(t,r)=>{var n=i.o(e,t)?e[t]:void 0;if(0!==n)if(n)r.push(n[2]);else{var o=new Promise(((r,i)=>n=e[t]=[r,i]));r.push(n[2]=o);var a=i.p+i.u(t),s=new Error;i.l(a,(r=>{if(i.o(e,t)&&(0!==(n=e[t])&&(e[t]=void 0),n)){var o=r&&("load"===r.type?"missing":r.type),a=r&&r.target&&r.target.src;s.message="Loading chunk "+t+" failed.\n("+o+": "+a+")",s.name="ChunkLoadError",s.type=o,s.request=a,n[1](s)}}),"chunk-"+t,t)}};var t=(t,r)=>{var n,o,[a,s,c]=r,u=0;if(a.some((t=>0!==e[t]))){for(n in s)i.o(s,n)&&(i.m[n]=s[n]);if(c)c(i)}for(t&&t(r);u<a.length;u++)o=a[u],i.o(e,o)&&e[o]&&e[o][0](),e[o]=0},r=window.webpackChunkNRBA=window.webpackChunkNRBA||[];r.forEach(t.bind(null,0)),r.push=t.bind(null,r.push.bind(r))})();var o={};(()=>{"use strict";i.r(o);var e=i(2325),t=i(6562);const r=Object.values(e.D);function n(e){const n={};return r.forEach((r=>{n[r]=function(e,r){return!1!==(0,t.Mt)(r,"".concat(e,".enabled"))}(r,e)})),n}var a=i(2384),s=i(909),c=i(9557),u=i(7022);class d extends c.w{constructor(e){super(e),this.aggregatedData={}}store(e,t,r,n,i){var o=this.getBucket(e,t,r,i);return o.metrics=function(e,t){t||(t={count:0});return t.count+=1,(0,u.D)(e,(function(e,r){t[e]=f(r,t[e])})),t}(n,o.metrics),o}merge(e,t,r,n,i){var o=this.getBucket(e,t,n,i);if(o.metrics){var a=o.metrics;a.count+=r.count,(0,u.D)(r,(function(e,t){if("count"!==e){var n=a[e],i=r[e];i&&!i.c?a[e]=f(i.t,n):a[e]=function(e,t){if(!t)return e;t.c||(t=l(t.t));return t.min=Math.min(e.min,t.min),t.max=Math.max(e.max,t.max),t.t+=e.t,t.sos+=e.sos,t.c+=e.c,t}(i,a[e])}}))}else o.metrics=r}storeMetric(e,t,r,n){var i=this.getBucket(e,t,r);return i.stats=f(n,i.stats),i}getBucket(e,t,r,n){this.aggregatedData[e]||(this.aggregatedData[e]={});var i=this.aggregatedData[e][t];return i||(i=this.aggregatedData[e][t]={params:r||{}},n&&(i.custom=n)),i}get(e,t){return t?this.aggregatedData[e]&&this.aggregatedData[e][t]:this.aggregatedData[e]}take(e){for(var t={},r="",n=!1,i=0;i<e.length;i++)t[r=e[i]]=g(this.aggregatedData[r]),t[r].length&&(n=!0),delete this.aggregatedData[r];return n?t:null}}function f(e,t){return null==e?function(e){e?e.c++:e={c:1};return e}(t):t?(t.c||(t=l(t.t)),t.c+=1,t.t+=e,t.sos+=e*e,e>t.max&&(t.max=e),e<t.min&&(t.min=e),t):{t:e}}function l(e){return{t:e,min:e,max:e,sos:e*e,c:1}}function g(e){return"object"!=typeof e?[]:(0,u.D)(e,p)}function p(e,t){return t}var h=i(6797),v=i(5526),m=i(8610);var b=i(5637),y=i(7817),w=i(600);new class{constructor(t){let r=arguments.length>1&&void 0!==arguments[1]?arguments[1]:(0,v.ky)(16);this.agentIdentifier=r,this.sharedAggregator=new d({agentIdentifier:this.agentIdentifier}),this.features={},this.desiredFeatures=t.features||[],this.desiredFeatures.sort(((t,r)=>e.p[t.featureName]-e.p[r.featureName])),Object.assign(this,(0,a.j)(this.agentIdentifier,t,t.loaderType||"agent")),this.start()}get config(){return{info:(0,t.C5)(this.agentIdentifier),init:(0,t.P_)(this.agentIdentifier),loader_config:(0,t.DL)(this.agentIdentifier),runtime:(0,t.OP)(this.agentIdentifier)}}start(){const e="features";try{const t=n(this.agentIdentifier);this.desiredFeatures.forEach((e=>{if(t[e.featureName]){const r=(0,s.Z)(e.featureName);r.every((e=>t[e]))||(0,m.Z)("".concat(e.featureName," is enabled but one or more dependent features has been disabled (").concat(JSON.stringify(r),"). This may cause unintended consequences or missing data...")),this.features[e.featureName]=new e(this.agentIdentifier,this.sharedAggregator)}})),(0,h.Qy)(this.agentIdentifier,this.features,e)}catch(t){(0,m.Z)("Failed to initialize all enabled instrument classes (agent aborted) -",t);for(const e in this.features)this.features[e].abortHandler?.();const r=(0,h.fP)();return delete r.initializedAgents[this.agentIdentifier]?.api,delete r.initializedAgents[this.agentIdentifier]?.[e],delete this.sharedAggregator,delete r.ee?.get(this.agentIdentifier),!1}}}({features:[b.Instrument,y.Instrument,w.Instrument],loaderType:"lite"})})(),window.NRBA=o})();</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="/media/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/media/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/media/favicon-16x16.png">
+    <link rel="shortcut icon" href="/media/favicon.ico">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#000000">
+    <meta name="msapplication-navbutton-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link href="//ajax.googleapis.com" rel="dns-prefetch">
+    <link rel='stylesheet' href='/css/chatbot3.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='classic-theme-styles-css' href='/css/classic-themes.min.css?ver=1' type='text/css' media='all' />
+    <link rel='stylesheet' id='tp_twitter_plugin_css-css' href='/css/tp_twitter_plugin.css?ver=1.0' type='text/css' media='screen' />
+    <link rel='stylesheet' id='carbine-font-body-css' href='https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i' type='text/css' media='all' />
+    <link rel='stylesheet' id='carbine-style-css' href='/css/style.min.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='carbine-font-heading-css' href='/fonts/webfonts.css' type='text/css' media='all' />
+    <script type='text/javascript' src='/js/jquery-3.5.1.min.js' id='jquery-core-js'></script>
+    <script type='text/javascript' src='/js/forms2.min.js' id='marketo-forms-js'></script>
+    <script type='text/javascript' src='/js/header.min.js' id='carbine-script-header-js'></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    
+    <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-document-language="true" type="text/javascript" charset="UTF-8" data-domain-script="02ad5672-6494-4b20-a5ae-7d131a0f4f9c"></script>
+    <script type="text/javascript">
+    function OptanonWrapper() { }
+    </script>
+    
+    
+    <style>
+      body.single-post.postid-64723 #sidebar #amazon_polly_player-2, body.single-post.postid-64723 #sidebar #blog_toc-3{
+        display: none;
+      }
+      .postid-64723 #blog_toc-3 {
+        display: none;
+      }
+      
+      .cta.top.bf_ungated_init[href="https://www.sentinelone.com/wp-content/uploads/2022/06/S1-Data-Protection-Addendum-Processor_CloudJune-2022Online.pdf"] {
+        display: none;
+      }
+      
+      #dpa-switch {
+        margin-bottom: 1rem;
+      }
+      .single-anthology .main .anthology-content .main-content .content-wrapper h3 {
+        color: #fff;
+        margin: 1.5rem 0 .5rem;
+      }
+      .single.single-anthology .main .anthology-content .main-content .content-wrapper p {
+        margin-bottom: .5rem;
+      }
+      .social:hover > li {
+  opacity: 0.5;
+}
+
+.social:hover > li:hover {
+  opacity: 1;
+}
+
+
+#social-test {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 30px;
+  .social {
+    padding-left: 0px;
+  }
+  .social li {
+    display: inline-block;
+  }
+  .social li a {
+    color: rgb(247 1 1 / 60%);
+    border-radius: 6px;
+    list-style-type: none;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    padding: 1%;
+    border: 1px solid rgba(256, 256, 256, 0.6);
+    cursor: pointer;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    transition: ease .3s;
+    &:hover {
+      color: rgba(25, 82, 197, 0.6);
+      border: 1px solid rgba(256, 256, 256, 1);
+    }
+  }
+}
+
+    </style>
+    
+    <script type="text/plain" class="optanon-category-C0003">
+        var _tvq = window._tvq = window._tvq || [];
+        (function() {
+            var u = (("https:" == document.location.protocol) ? "https://collector-5527.tvsquared.com/" : "http://collector-5527.tvsquared.com/");
+            _tvq.push(['setSiteId', "TV-45457227-1"]);
+            _tvq.push(['setTrackerUrl', u + 'tv2track.php']);
+            _tvq.push([function() {
+                this.deleteCustomVariable(5, 'page')
+            }]);
+            _tvq.push(['trackPageView']);
+            var d = document,
+                g = d.createElement('script'),
+                s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript';
+            g.defer = true;
+            g.async = true;
+            g.src = u + 'tv2track.js';
+            s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+    
+    
+    <script type="text/plain" class="optanon-category-C0004">
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    
+    fbq('init', '300800713594069'); fbq('init', '307303873637462');
+    fbq('track', "PageView");</script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=300800713594069&ev=PageView&noscript=1"
+    /></noscript>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=307303873637462&ev=PageView&noscript=1"
+    /></noscript>
+    
+    <script src="https://www.googleoptimize.com/optimize.js?id=OPT-W2VRGSJ"></script>
+    
+    <script type="text/javascript" charset="UTF-8">
+      !(function() { var analytics = (window.analytics = window.analytics || []); if (!analytics.initialize) { if (analytics.invoked) { window.console && console.error && console.error('MetaRouter snippet included twice.') } else { analytics.invoked = !0; analytics.methods = [ 'trackSubmit', 'trackClick', 'trackLink', 'trackForm', 'pageview', 'identify', 'reset', 'group', 'track', 'ready', 'alias', 'debug', 'page', 'once', 'off', 'on', 'addSourceMiddleware', 'addIntegrationMiddleware', 'setAnonymousId', 'addDestinationMiddleware', ]; analytics.factory = function (e) { return function () { var t = Array.prototype.slice.call(arguments); t.unshift(e); analytics.push(t); return analytics } }; for (var e = 0; e < analytics.methods.length; e++) { var key = analytics.methods[e]; analytics[key] = analytics.factory(key) } analytics.load = function (src, o) { analytics._loadOptions = o; var t = document.createElement('script'); t.type = 'text/javascript'; t.async = !0; t.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.calibermind.com/"+ src + ".js"; var n = document.getElementsByTagName('script')[0]; n.parentNode.insertBefore(t, n); }; analytics.SNIPPET_VERSION = '4.13.1'; analytics.load('a', { writeKey: 'XJ8n3dREAnBDhzEdyhZP6'}); analytics.page(); }}})();
+      </script><meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+    
+    <title>Subscribe | Emersa</title>
+    <meta name="description" content="Have any questions? Contact Emersa today to learn more about our autonomous cybersecurity. Emersa provides endpoint, cloud, &amp; identity protection for any enterprise." />
+    <link rel="canonical" href="https://www.sentinelone.com/contact/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Subscribe" />
+    <meta property="og:description" content="Have any questions? Contact Emersa today to learn more about our autonomous cybersecurity. Emersa provides endpoint, cloud, &amp; identity protection for any enterprise." />
+    <meta property="og:url" content="https://www.sentinelone.com/contact/" />
+    <meta property="og:site_name" content="Emersa" />
+    <meta property="article:modified_time" content="2023-03-21T22:05:35+00:00" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    
+    <link rel='dns-prefetch' href='//www.sentinelone.com' />
+    <link rel='dns-prefetch' href='//go.sentinelone.com' />
+    <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+    <link rel='dns-prefetch' href='//cloud.typography.com' />
+    <link rel="alternate" type="application/rss+xml" title="Emersa &raquo; Feed" href="https://www.sentinelone.com/feed/" />
+    <link rel="stylesheet" href="/css/subscribe.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' id='classic-theme-styles-css' href='https://www.sentinelone.com/wp-includes/css/classic-themes.min.css?ver=1' type='text/css' media='all' />
+    <link rel='stylesheet' id='tp_twitter_plugin_css-css' href='https://www.sentinelone.com/wp-content/plugins/recent-tweets-widget/tp_twitter_plugin.css?ver=1.0' type='text/css' media='screen' />
+    <link rel='stylesheet' id='carbine-font-body-css' href='https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i' type='text/css' media='all' />
+    <link rel='stylesheet' id='carbine-font-heading-css' href='https://cloud.typography.com/7197018/6979812/css/fonts.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='carbine-style-css' href='https://www.sentinelone.com/wp-content/themes/sentinelone/carbine/assets/css/style.min.css?ver=1682885273' type='text/css' media='all' />
+    <script type='application/json' id='wpp-json'>
+    {"sampling_active":0,"sampling_rate":100,"ajax_url":"https:\/\/www.sentinelone.com\/wp-json\/wordpress-popular-posts\/v1\/popular-posts","api_url":"https:\/\/www.sentinelone.com\/wp-json\/wordpress-popular-posts","ID":25054,"token":"f6a1fdd371","lang":0,"debug":0}
+    </script>
+    <script type='text/javascript' src='https://www.sentinelone.com/wp-content/plugins/wordpress-popular-posts/assets/js/wpp.min.js?ver=310158bdd1af84d475fdfad436b9d61d' id='wpp-js-js'></script>
+    <script type='text/javascript' src='https://www.sentinelone.com/wp-content/themes/sentinelone/carbine/assets/components/jquery/jquery-3.5.1.min.js' id='jquery-core-js'></script>
+    <!-- script type='text/javascript' src='//go.sentinelone.com/js/forms2/js/forms2.min.js' id='marketo-forms-js'></script -->
+    <script type='text/javascript' src='https://www.sentinelone.com/wp-content/themes/sentinelone/carbine/assets/js/header.min.js?ver=1682885273' id='carbine-script-header-js'></script>
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.sentinelone.com/wp-includes/wlwmanifest.xml" />
+    <link rel='shortlink' href='https://www.sentinelone.com/?p=25054' />
+    <style id="wpp-loading-animation-styles">@-webkit-keyframes bgslide{from{background-position-x:0}to{background-position-x:-200%}}@keyframes bgslide{from{background-position-x:0}to{background-position-x:-200%}}.wpp-widget-placeholder,.wpp-widget-block-placeholder{margin:0 auto;width:60px;height:3px;background:#dd3737;background:linear-gradient(90deg,#dd3737 0%,#571313 10%,#dd3737 100%);background-size:200% auto;border-radius:3px;-webkit-animation:bgslide 1s infinite linear;animation:bgslide 1s infinite linear}</style>
+    
+    
+    
+    <meta name="onesignal" content="wordpress-plugin" />
+    <script>
+    
+          window.OneSignal = window.OneSignal || [];
+    
+          OneSignal.push( function() {
+            OneSignal.SERVICE_WORKER_UPDATER_PATH = "OneSignalSDKUpdaterWorker.js.php";
+                          OneSignal.SERVICE_WORKER_PATH = "OneSignalSDKWorker.js.php";
+                          OneSignal.SERVICE_WORKER_PARAM = { scope: "/" };
+            OneSignal.setDefaultNotificationUrl("https://www.sentinelone.com");
+            var oneSignal_options = {};
+            window._oneSignalInitOptions = oneSignal_options;
+    
+            oneSignal_options['wordpress'] = true;
+    oneSignal_options['appId'] = 'acaf2329-c613-4dbe-a651-1ed5a45c3762';
+    oneSignal_options['allowLocalhostAsSecureOrigin'] = true;
+    oneSignal_options['welcomeNotification'] = { };
+    oneSignal_options['welcomeNotification']['disable'] = true;
+    oneSignal_options['path'] = "https://www.sentinelone.com/wp-content/plugins/onesignal-free-web-push-notifications/sdk_files/";
+    oneSignal_options['safari_web_id'] = "web.onesignal.auto.1f7bf174-83d3-440c-93ed-a44b9d28ad31";
+    oneSignal_options['persistNotification'] = true;
+    oneSignal_options['promptOptions'] = { };
+                    OneSignal.init(window._oneSignalInitOptions);
+                    OneSignal.showSlidedownPrompt();      });
+    
+          function documentInitOneSignal() {
+            var oneSignal_elements = document.getElementsByClassName("OneSignal-prompt");
+    
+            var oneSignalLinkClickHandler = function(event) { OneSignal.push(['registerForPushNotifications']); event.preventDefault(); };        for(var i = 0; i < oneSignal_elements.length; i++)
+              oneSignal_elements[i].addEventListener('click', oneSignalLinkClickHandler, false);
+          }
+    
+          if (document.readyState === 'complete') {
+               documentInitOneSignal();
+          }
+          else {
+               window.addEventListener("load", function(event){
+                   documentInitOneSignal();
+              });
+          }
+        </script>
+    <link rel="icon" href="https://www.sentinelone.com/wp-content/uploads/2017/06/cropped-s1-favicon-big-32x32.png" sizes="32x32" />
+    <link rel="icon" href="https://www.sentinelone.com/wp-content/uploads/2017/06/cropped-s1-favicon-big-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="https://www.sentinelone.com/wp-content/uploads/2017/06/cropped-s1-favicon-big-180x180.png" />
+    <meta name="msapplication-TileImage" content="https://www.sentinelone.com/wp-content/uploads/2017/06/cropped-s1-favicon-big-270x270.png" />
+    <style type="text/css" id="wp-custom-css">
+                body.single-labs .archive-single-post.labs #primary .entry-content table {
+        word-break: break-word;
+    }
+    .custom_code .code-wrap p, article.hentry p {
+        word-break: break-word;
+    }		</style>
+    
+    <script>
+        (function(w,q){w['QualifiedObject']=q;w[q]=w[q]||function(){
+        (w[q].q=w[q].q||[]).push(arguments)};})(window,'qualified')
+        </script>
+    <script async src="https://js.qualified.com/qualified.js?token=ZQoyHXFTqngPcfcB"></script>
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJPGLC9EVP"></script>
+    <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-KJPGLC9EVP');
+        </script>
+    
+    <script>
+            (function($) {
+                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer','GTM-KGGXSJ');
+            })(jQuery);
+        </script>
+    
+    <style>section.interactive{padding:0;overflow:visible}#contact-us section{padding-bottom:20rem}footer{position:relative;z-index:2}.contact-sidebar .cta.boxed_right_arrow{padding:0 2.75rem !important}</style>
+    <script>
+            var $ = jQuery.noConflict();
+        </script>
+    </head>
+<body class="page-template page-template-carbine page-template-template-default page-template-carbinetemplate-default-php page page-id-25054 no-sidebar page-slug-contact site-www">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KGGXSJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VC09DT4JEL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VC09DT4JEL');
+</script>
+  <header class="header  ">
+    <div class="top-bar">
+    <div class="container">
+    <div class="container-inner">
+    <div class="top-bar-wrap">
+    <div class="menu-top-bar-container"><ul id="menu-top-bar" class="menu">
+   <!-- <li id="menu-item-25727" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25727"><a href="/contact/">Contact</a></li>-->
+    <!-- <li id="menu-item-16923" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16923"><a href="/blog/">Blog</a></li>  -->
+    </ul></div> <button class="search">
+    <span class="light">
+    <img src="/media/search-icon-white.svg" />
+    </span>
+    <span class="dark">
+    <img src="/media/search-icon.svg" />
+    </span>
+    </button>
+    <div class="search-form">
+    <form autocomplete="off" method="get" action="https://www.sentinelone.com">
+    <fieldset>
+    <input type="search" name="s" placeholder="Search ..." value="" />
+    <button class="search" type="submit">
+    <span class="light">
+    <img class="icon-search" src="/media/search-icon-white.svg" />
+    <img class="icon-down" src="/media/navigation-close.svg" />
+    </span>
+    <span class="dark">
+    <img class="icon-search" src="/media/search-icon.svg" />
+    <img class="icon-down" src="/media/navigation-close-dark.svg" />
+    </span>
+    </button>
+    </fieldset>
+    </form>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="navigation">
+    <div class="container">
+    <div class="logo fadein animated">
+    <a href="/">
+    <img class="light" src=" /media/emersalogosvg1.svg" />
+    <img src=" /media/emersalogosvg1.svg" />
+    </a>
+    </div>
+    <div class="nav-holder">
+    <div class="nav-frame fadein animated delay-1s">
+    <div class="menu-overlay"></div>
+    <div class="menu-carbine-primary-container">
+    <ul id="menu-carbine-primary" class="menu">
+    <div class="marker"></div>
+    <div class="mega-wrap"><div class="mega-wrap-inner"></div></div>
+    
+    
+    <!-- 1 -->
+    
+    <li class="menu-root-item active ">
+    <a href="#" target="">Emersa</a>
+    <div class="mega">
+    <div class="container">
+    <ul class="menu-groups">
+        
+        
+        <!-- 1 -->
+        <li class="menu-group twoline cols-1">
+            <div class="submenu-wrap">
+                <div class="menu-label">All About Emersa</div>
+                
+                
+                 <!-- 1 -->
+                <ul class="submenu twoline cols-1">
+                    <li class="menu-item twoline cols-1 active">
+                        <a href="/indexintro.html#who" target="">
+                            
+                                <div class="labels">
+                                    <span class="title"><strong>About</strong></span>
+                                    <span class="subtitle">Learn All About Emersa</span>
+                                </div>
+                            <div class="bg"></div>
+                        </a>    
+                    </li>
+                </ul>
+                
+                 <!-- 2 -->
+                <ul class="submenu twoline cols-1">
+                    <li class="menu-item twoline cols-1 active">
+                        <a href="https://docs.google.com/document/d/1iaoqWEuOmQilFm4yEVASASLEZJT_78KB/edit?usp=sharing&ouid=105780024435462099389&rtpof=true&sd=true" target="">
+                            
+                                <div class="labels">
+                                    <span class="title"><strong>Road Map</strong></span>
+                                    <span class="subtitle">This is our Road Map</span>
+                                </div>
+                            <div class="bg"></div>
+                        </a>    
+                    </li>
+                </ul>
+                
+                 <!-- 3 -->
+                <ul class="submenu twoline cols-1">
+                    <li class="menu-item twoline cols-1 active">
+                        <a href="/indexintro.html#team" target="">
+                            
+                                <div class="labels">
+                                    <span class="title"><strong>Team</strong></span>
+                                    <span class="subtitle">Find Out About The Team</span>
+                                </div>
+                            <div class="bg"></div>
+                        </a>    
+                    </li>
+                </ul>
+                
+                 <!-- 4 -->
+                <ul class="submenu twoline cols-1">
+                    <li class="menu-item twoline cols-1 active">
+                        <a href="/indexintro.html#whitepapers" target="">
+                            
+                                <div class="labels">
+                                    <span class="title"><strong>White Papers</strong></span>
+                                    <span class="subtitle">This is about The White Papers</span>
+                                </div>
+                            <div class="bg"></div>
+                        </a>    
+                    </li>
+                </ul>
+                
+            </div>
+        </li>
+        
+    </ul>
+    </div>
+    </div>
+    <div class="hover-underlay"></div>
+    </li>
+    
+  
+    
+    <!-- 2 -->
+    
+    <li style="/*padding: 13px 1px 0px 0px;*/" class="menu-item1">
+        <a href="/subscribe/" target="">Subscribe</a>
+      </li>
+    
+  
+    
+    <!-- 3 -->
+    
+    <li style="/*padding: 13px 1px 0px 0px;*/" class="menu-item1">
+        <a href="/mint/" target="">Mint</a>
+      </li>
+    
+  
+    
+<!---->
+    </ul>
+    </div>
+    </div>
+    <div class="menu-toggle"><a href="#"><span></span></a></div>
+    </div>
+    
+
+
+     
+        <section class="login-section">
+            <a class="demo fadein animated login-btn">Login</a>
+          </section>
+        
+          <!-- DASHBOARD SECTION -->
+          <section style="max-height: 21px;flex-wrap: wrap-reverse;" class="dashboard-section">
+            <a class="demo fadein animated logout-btn">🔐 Log out</a>&nbsp;<a href="https://bit.ly/EmersaRPGInstall" class="demo fadein animated">Demo</a>
+          </section>
+    <div class="nav-bg"></div>
+    <div class="nav-drawer">
+    <div class="upper">
+    <div class="logo fadein animated">
+    <a href="/">
+    <img class="light" src=" /media/emersalogosvg1.svg" />
+    <img src=" /media/emersalogosvg1.svg" />
+    </a>
+    </div>
+    <div class="toolbar">
+    <a class="back"><img src="/media/navigation-arrow-left.svg" /><span>Back</span></a>
+    <a class="close"><img src="/media/navigation-close.svg" /></a>
+    </div>
+    <div class="menu-wrapper">
+    <div class="menu-carbine-primary-container">
+    <ul id="menu-carbine-primary" class="menu">
+    <div class="marker"></div>
+    <div class="mega-wrap"><div class="mega-wrap-inner"></div></div>
+        
+    
+    <!-- 1 -->
+    
+    
+
+    
+  
+    
+    <!-- 2 -->
+    
+    
+    <li style="/*padding: 13px 1px 0px 0px;*/" class="menu-item2 navigation-close">
+        <a class="close" href="/subscribe/" target="">Subscribe</a>
+      </li>
+    
+  
+    
+    <!-- 3 -->
+    
+    
+    <li style="/*padding: 13px 1px 0px 0px;*/" class="menu-item2 navigation-close">
+        <a class="close" href="/mint/" target="">Mint</a>
+      </li>
+    
+  
+    
+    </ul>
+    </div>
+    </div>
+    </div>
+    <div class="lower">
+      <section class="login-section">
+        <a class="demo fadein animated login-btn">Login</a>
+      </section>
+    
+      <!-- DASHBOARD SECTION -->
+      <section class="dashboard-section">
+        <a class="demo fadein animated logout-btn">🔐 Log out</a>
+      </section>
+    <div class="secondary-links">
+    <div class="menu-top-bar-container"><ul id="menu-top-bar-1" class="menu">
+    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25727"><a href="/contact/">Contact</a></li>
+    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16923"><a href="/blog/">Blog</a></li>
+    </ul></div><div class="menu-top-bar-container"><ul id="menu-top-bar-2" class="menu">
+    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25727"><a href="/contact/">Contact</a></li>
+    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16923"><a href="/blog/">Blog</a></li>
+    </ul></div> </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <script>Navigation.start();</script>
+    </header>
+
+    <!--messager script-->
+   <!-- <div class="messager1">
+      <div onclick="appear()"  style="text-align: right">
+      <span class="circle_icon">
+        <img src="/media/messenger1.png">
+ </span>
+</div>
+    </div>
+<div id="chat3" class="disappear">
+
+  <section id="loading-screen">
+  
+    <div id="loader"></div>
+
+</section>
+% include chatbotwithcolomn5.html %
+</div>
+-->
+    <!--end of script-->
+<div class="main   with-short-header">
+<div id="contact-us" class="section-wrap header block-0">
+<div class="blackout"></div>
+<section id="page_head_4d6402acf195931cc0114c4539040fbc" class="page_head lazy 4d6402acf195931cc0114c4539040fbc light big_sub do_nothing  " style="background-position:50% 50%;background-color:#2b1da3;background-size:cover;" data-bg-multi="url( https://www.sentinelone.com/wp-content/uploads/2021/05/Hero-scaled.jpg )">
+<div class="underlay">
+</div>
+<div class="underlay" style="background: linear-gradient( 180deg, rgba(11,12,27,0) 0%, rgba(11,12,27,1) 100% ); ">
+</div>
+<div class="container">
+<div class="inner ">
+<div class="context">
+<div class="heading">
+<h1 class="wow fadeInDown">Subscribe</h1>
+<h2 class="wow fadeInUp" data-wow-delay=".3s"></h2>
+</div>
+
+
+	
+
+</div>
+</div>
+<section class="card container grid">
+  <div class="card__container grid">
+    <!--==================== CARD 1 ====================-->
+    <article class="card__content grid">
+      <div class="card__pricing">
+        <div class="card__pricing-number">
+          <span class="card__pricing-symbol">$</span>0
+        </div>
+        <span class="card__pricing-month">/month</span>
+      </div>
+
+      <header class="card__header">
+        <div class="card__header-circle grid">
+          <img src="https://fadzrinmadu.github.io/hosted-assets/responsive-pricing-card-using-html-and-css/free-coin.png" alt="" class="card__header-img" />
+        </div>
+
+        <span class="card__header-subtitle">Free plan</span>
+        <h1 class="card__header-title">Basic</h1>
+      </header>
+
+      <ul class="card__list grid">
+        <li class="card__list-item">
+          <i class="uil uil-check card__list-icon"></i>
+          <p class="card__list-description">3 user request</p>
+        </li>
+        <li class="card__list-item">
+          <i class="uil uil-check card__list-icon"></i>
+          <p class="card__list-description">10 downloads por day</p>
+        </li>
+        <li class="card__list-item">
+          <i class="uil uil-check card__list-icon"></i>
+          <p class="card__list-description">Daily content updates</p>
+        </li>
+        <li class="card__list-item">
+          <i class="uil uil-check card__list-icon"></i>
+          <p class="card__list-description">Fully editable files</p>
+        </li>
+      </ul>
+
+      <button class="card__button">Choose this plan</button>
+    </article>
+
+    <!--==================== CARD 2 ====================-->
+    <article class="card__content grid">
+      <div class="card__pricing">
+        <div class="card__pricing-number">
+          <span class="card__pricing-symbol">$</span>19
+        </div>
+        <span class="card__pricing-month">/month</span>
+      </div>
+
+      <header class="card__header">
+        <div class="card__header-circle grid">
+          <img src="https://fadzrinmadu.github.io/hosted-assets/responsive-pricing-card-using-html-and-css/pro-coin.png" alt="" class="card__header-img" />
+        </div>
+
+        <span class="card__header-subtitle">Most popular</span>
+        <h1 class="card__header-title">Professional</h1>
+      </header>
+
+      <ul class="card__list grid">
+        <li class="card__list-item">
+          <i class="uil uil-check card__list-icon"></i>
+          <p class="card__list-description">100 user request</p>
+        </li>
+        <li class="card__list-item">
+          <i class="uil uil-check card__list-icon"></i>
+          <p class="card__list-description">Unlimited downloads</p>
+        </li>
+        <li class="card__list-item">
+          <i class="uil uil-check card__list-icon"></i>
+          <p class="card__list-description">Unlock all features from our site</p>
+        </li>
+        <li class="card__list-item">
+          <i class="uil uil-check card__list-icon"></i>
+          <p class="card__list-description">Daily content updates</p>
+        </li>
+        <li class="card__list-item">
+          <i class="uil uil-check card__list-icon"></i>
+          <p class="card__list-description">Fully editable files</p>
+        </li>
+      </ul>
+
+      <button class="card__button">Choose this plan</button>
+    </article>
+
+    <!--==================== CARD 3 ====================-->
+    <article class="card__content grid">
+      <div class="card__pricing">
+        <div class="card__pricing-number">
+          <span class="card__pricing-symbol">$</span>29
+        </div>
+        <span class="card__pricing-month">/month</span>
+      </div>
+
+      <header class="card__header">
+        <div class="card__header-circle grid">
+          <img src="https://fadzrinmadu.github.io/hosted-assets/responsive-pricing-card-using-html-and-css/enterprise-coin.png" alt="" class="card__header-img" />
+        </div>
+
+        <span class="card__header-subtitle">For agencies</span>
+        <h1 class="card__header-title">Enterprise</h1>
+      </header>
+
+      <ul class="card__list grid">
+        <li class="card__list-item">
+          <i class="uil uil-check card__list-icon"></i>
+          <p class="card__list-description">Unlimited  user request</p>
+        </li>
+        <li class="card__list-item">
+          <i class="uil uil-check card__list-icon"></i>
+          <p class="card__list-description">Unlimited downloads</p>
+        </li>
+        <li class="card__list-item">
+          <i class="uil uil-check card__list-icon"></i>
+          <p class="card__list-description">Unlock all features from our site</p>
+        </li>
+        <li class="card__list-item">
+          <i class="uil uil-check card__list-icon"></i>
+          <p class="card__list-description">Daily content updates</p>
+        </li>
+        <li class="card__list-item">
+          <i class="uil uil-check card__list-icon"></i>
+          <p class="card__list-description">Fully editable files</p>
+        </li>
+      </ul>
+
+      <button class="card__button">Choose this plan</button>
+    </article>
+  </div>
+</section>
+<!--
+<div class="row">
+    <div class="col-md-4 col-sm-6">
+        <div class="pricing-table-3 basic">
+            <div class="pricing-table-header">
+                <h4><strong>BASIC</strong></h4>
+                <p>Loerm Ipsum Donor Sit Amet</p>
+            </div>
+            <div class="price"><strong>$3</strong> / MONTH</div>
+            <div class="pricing-body">
+                <ul class="pricing-table-ul">
+                    <li><i class="fa fa-send"></i> Unlimited Email Addresses</li>
+                    <li><i class="fa fa-cloud"></i> 50 GB Disk Space</li>
+                    <li><i class="fa fa-database"></i> Unlimited MySQL Database</li>
+                    <li class="not-avail"><i class="fa fa-clock-o"></i> 24X7 Support</li>
+                    <li class="not-avail"><i class="fa fa-envelope"></i> Email Support</li>
+                </ul><a href="#" class="view-more">View More</a></div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6">
+        <div class="pricing-table-3 premium">
+            <div class="pricing-table-header">
+                <h4><strong>PREMIUM</strong></h4>
+                <p>Loerm Ipsum Donor Sit Amet</p>
+            </div>
+            <div class="price"><strong>$8</strong> / MONTH</div>
+            <div class="pricing-body">
+                <ul class="pricing-table-ul">
+                    <li><i class="fa fa-send"></i> Unlimited Email Addresses</li>
+                    <li><i class="fa fa-cloud"></i> 80 GB Disk Space</li>
+                    <li><i class="fa fa-database"></i> Unlimited MySQL Database</li>
+                    <li class="not-avail"><i class="fa fa-clock-o"></i> 24X7 Support</li>
+                    <li class="not-avail"><i class="fa fa-envelope"></i> Email Support</li>
+                </ul><a href="#" class="view-more">View More</a></div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-12">
+        <div class="pricing-table-3 business">
+            <div class="pricing-table-header">
+                <h4><strong>BUSINESS</strong></h4>
+                <p>Loerm Ipsum Donor Sit Amet</p>
+            </div>
+            <div class="price"><strong>$12</strong> / MONTH</div>
+            <div class="pricing-body">
+                <ul class="pricing-table-ul">
+                    <li><i class="fa fa-send"></i> Unlimited Email Addresses</li>
+                    <li><i class="fa fa-cloud"></i> 120 GB Disk Space</li>
+                    <li><i class="fa fa-database"></i> Unlimited MySQL Database</li>
+                    <li class="not-avail"><i class="fa fa-clock-o"></i> 24X7 Support</li>
+                    <li class="not-avail"><i class="fa fa-envelope"></i> Email Support</li>
+                </ul><a href="#" class="view-more">View More</a></div>
+        </div>
+    </div>
+</div>
+-->
+	  
+</div>
+	
+</section>
+	
+<script>
+( function ( $, window, document, undefined ) {
+
+	$( "#page_head_4d6402acf195931cc0114c4539040fbc .cta a" ).click( function ( e ) {
+
+		if ( $( this ).attr( 'href' ) == '#' ) {
+			e.preventDefault();
+			e.stopPropagation();
+			var elm = $( 'section' ).eq( 1 );
+			window.scroll( {
+				behavior: 'smooth',
+				left:     0,
+				top:      elm.get()[0].offsetTop
+			} );
+			return false;
+		}
+
+	});
+
+} )( jQuery, window, document );
+</script>
+</div>
+</div>
+<div class="footer-wrap">
+    <footer class="footer">
+    <div class="container-wide">
+    <div class="links">
+   </div>
+  
+ 
+    </div>
+    </footer>
+  <footer class="copyright">
+    <div class="container-wide">
+    <div class="hline"></div>
+    <div class="links">
+    <div class="copy">
+    ©<span id="year"></span> Emersa, All Rights Reserved. </div>
+</div>
+    <img src="/media/footer-logo1.svg" />
+    <div class="icons">
+    <a href="https://twitter.com/emersaofficial" rel="noopener noreferrer" target="_blank">
+    <img src="/media/social-twitter-white.svg" />
+    </a><a href="https://www.youtube.com/@akashagraphiclibrary676" rel="noopener noreferrer" target="_blank">
+    <img src="/media/social-youtube-white.svg" />
+    </a><a href="https://discord.gg/emersa" rel="noopener noreferrer" target="_blank">
+    <img src="/media/icons8-discord.svg" />
+    </a>
+    </div>
+    </div>
+    </footer>
+    </div>
+<script>
+    MktoForms2.onFormRender(function( form ) {
+        var button_row = form.getFormElem().find( '.mktoButtonRow' );
+        var label      = button_row.find( 'button' ).html();
+        var legalese   = 'By clicking , I agree to the use of my personal data in accordance with SentinelOne <a href=\"/legal/privacy-policy/\">Privacy Policy</a>. SentinelOne will not sell, trade, lease, or rent your personal data to third parties.';
+        if ( button_row.data( 'inited' ) ) {
+            return;
+        }
+        button_row.data( 'inited', true );
+        button_row.after( '<div class="marketo-legal">' + legalese.split( '' ).join( label )  + '</div>' );
+    } );
+</script>
+<div id="global-media-viewer">
+    <div class="underlay"></div>
+    <div class="display-wrap">
+    <div class="display">
+    <div class="modalbar">
+    <div class="title"></div>
+    <div class="close">
+    <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 18"><path d="m4.243 13.243 8.485-8.486M12.728 13.243 4.243 4.757" stroke="currentColor" /></svg>
+    </div>
+    </div>
+    <video controls><source src="" type="video/mp4"></video>
+    <div class="image-renderer"></div>
+    </div>
+    </div>
+    </div>
+
+<script type="text/plain" class="optanon-category-C0004">
+    _linkedin_partner_id = "2225260";
+    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+    window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+    </script><script type="text/javascript">
+    (function(){var s = document.getElementsByTagName("script")[0];
+    var b = document.createElement("script");
+    b.type = "text/javascript";b.async = true;
+    b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+    s.parentNode.insertBefore(b, s);})();
+    </script>
+    <noscript>
+    <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=2225260&fmt=gif" />
+    </noscript>
+    
+    
+    <script type="text/plain" class="optanon-category-C0003" src="https://a.omappapi.com/app/js/api.min.js" data-account="87916" data-user="78190" async></script>
+    
+    
+    <script type="text/javascript" src="https://cdn.calibermind.com/js/identifyEmail.latest.js"></script> <script>
+        jQuery( document ).ready( function() {
+            jQuery( 'pre' ).each( function ( i, block ) {
+                hljs.highlightBlock( block );
+            } );
+        } );
+        </script>
+    <script type='text/javascript' src='https://www.sentinelone.com/wp-content/themes/sentinelone/carbine/assets/js/footer.min.js?ver=1682885273' id='carbine-script-footer-js'></script>
+    <script type='text/javascript' src='https://cdn.onesignal.com/sdks/OneSignalSDK.js?ver=310158bdd1af84d475fdfad436b9d61d' async='async' id='remote_sdk-js'></script>
+    
+    <script type="text/javascript">
+        var axel = Math.random() + ""; 
+        var a = axel * 10000000000000; document.write('<iframe src="https://8176321.fls.doubleclick.net/activityi;src=8176321;type=landi01;cat=senti00;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=1;num=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+    </script>
+    <noscript>
+        <iframe src="https://8176321.fls.doubleclick.net/activityi;src=8176321;type=landi01;cat=senti00;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=1;num=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+    </noscript>
+    
+    <script>						MktoForms2.whenReady(function(form){
+                                form.setValues({ lastFormURL: document.location.href });
+                                form.addHiddenFields({
+                                      lastFormURL : document.location.href,
+                                  });
+                              
+    function filterEmails() {
+          console.log('filter emails');
+              var form = MktoForms2.getForm( '1103' );
+            var email = form.getFormElem().find( "#Email" );
+          clearTimeout( MktoForms2.email_checker );
+          $.ajax( {
+            cache: false,
+            url  : '/external/api/email-validation/',
+            crossDomain: true,
+            type : 'POST',
+            data : {
+              email : email.val(),
+              blockpersonal : true,
+              blockcompetitors : true,
+              blockcustomers: false,
+              allowgmail : false
+            },
+            success : formController,
+            error : formController
+          } );
+        }
+        
+        function formController (result) {
+          console.log('form controller');
+          console.log(result.success);
+            var form = MktoForms2.getForm( '1103' );
+            var email = form.getFormElem().find( "#Email" );
+          var submit = form.getFormElem().find( "button[type='submit']" );
+          if ( result.success == "true" ) {
+            form.submittable( true );
+            submit.prop( "disabled", false );
+          } else {
+            form.submittable( false );
+            submit.prop( "disabled", true );
+            form.showErrorMessage( result.error, email );
+          }
+        }
+        
+        MktoForms2.whenReady( function( form ) {
+          if ( form.getId() == '1103' ) {
+            var submit = form.getFormElem().find( "button[type='submit']" );
+            var email = form.getFormElem().find( "#Email" );
+            form.submittable( false );
+            submit.prop( "disabled", true );
+            email.on( "input", function () {
+              clearTimeout( MktoForms2.email_checker );
+              MktoForms2.email_checker = setTimeout( filterEmails , 500 );
+            } );
+            if ( email.val() ) {
+              email.trigger( "input" );
+            }
+          }
+        } );
+                              
+                              });</script>
+    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"NRJS-7f7a0b93139dcf56f90","applicationID":"773889139","transactionName":"ZlwDMkMCWxJQUkdYXF8WIAVFCloPHkVWXENdWBUDHAdQB1BEX0U=","queueTime":0,"applicationTime":813,"atts":"ShsARAsYSBw=","errorBeacon":"bam.nr-data.net","agent":""}</script>
+    
+</body>
+</html>
+ 
