@@ -27,6 +27,39 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+
+
+
+const db = require("./app/models");
+
+
+
+const Role = db.role;
+
+db.mongoose
+  .connect(`mongodb+srv://ju3tin:grierson1979@cluster0.yudvymo.mongodb.net/?retryWrites=true&w=majority`, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => {
+    console.log("Successfully connect to MongoDB.");
+   // initial();
+  })
+  .catch(err => {
+    console.error("Connection error", err);
+    process.exit();
+  });
+
+// simple route
+
+
+// routes
+require("./app/routes/auth.routes")(app);
+require("./app/routes/user.routes")(app);
+
+
+
+
 // Serve the "bullshit" folder as a static directory
 app.use('/', express.static(path.join(__dirname, 'bullshit')));
 
