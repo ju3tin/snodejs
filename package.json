@@ -19,7 +19,7 @@
     "lorem-ipsum": "^2.0.3",
     "md5": "^2.2.1",
     "mersenne-twister": "^1.1.0",
-    "mongoose": "^8.3.2",
+    "mongoose": "6.10.0",
     "morgan": "~1.9.1",
     "pug": "^2.0.4",
     "uglify-js": "^2.6.0"
