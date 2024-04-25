@@ -902,7 +902,7 @@ $(document).ready(function() {
 		  //  const userName = document.getElementById('name').value;
         // const url = 'https://jsonplaceholder.typicode.com/posts';
         // Add your code below this line
-        let url = 'https://apps.emersa.io:8083/api/auth/signup';
+        let url = '/api/auth/signup';
             let req = new XMLHttpRequest();
 
             console.log(req);
@@ -972,7 +972,7 @@ $(document).ready(function() {
 			  //  const userName = document.getElementById('name').value;
         // const url = 'https://jsonplaceholder.typicode.com/posts';
         // Add your code below this line
-        let url = 'https://apps.emersa.io:8083/api/auth/signup';
+        let url = '/api/auth/signup';
             let req = new XMLHttpRequest();
 
             console.log(req);
@@ -1017,7 +1017,7 @@ $(document).ready(function() {
 		  //  const userName = document.getElementById('name').value;
         // const url = 'https://jsonplaceholder.typicode.com/posts';
         // Add your code below this line
-        let url = 'https://apps.emersa.io:8083/api/auth/signin';
+        let url = '/api/auth/signin';
             let req = new XMLHttpRequest();
 
             console.log(req);
@@ -1040,7 +1040,7 @@ $(document).ready(function() {
         document.cookie = cName + "=" + cValue + "; " + expires + "; path=/";
 }
 setCookie('accessToken', object.accessToken, 30);
-window.location.href = 'https://apps.emersa.io:8083/profile?accesstoken='+object.accessToken; 
+window.location.href = '/profile?accesstoken='+object.accessToken; 
             } if(req.status === 401){
                     let object = JSON.parse(req.responseText)
                     console.log(object);
