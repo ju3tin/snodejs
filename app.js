@@ -24,11 +24,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', express.static(path.join(__dirname, 'bullshit')));
 
 
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname,"/shit/index.html"));
 })
 
 
+app.get('*', function (req, res)  {
+  res.sendFile(path.join(__dirname,"/shit/404.html"));
+})
 
 //app.use('/', indexRouter);
 // app.use('/users', usersRouter);
