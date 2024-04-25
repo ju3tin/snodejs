@@ -24,13 +24,8 @@ app.get('/', function (req, res) {
    res.sendFile(path.join(__dirname,"/shit/index.html"));
 })
 
-//app.use('/', indexRouter);
+app.use('/', indexRouter);
 // app.use('/users', usersRouter);
-
-// Serve the "bullshit" folder as a static directory
-app.use('/', express.static(path.join(__dirname, 'bullshit')));
-
-
 
 
 // catch 404 and forward to error handler
