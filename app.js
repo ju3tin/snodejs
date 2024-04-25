@@ -16,17 +16,25 @@ const cors = require("cors");
 
 var app = express();
 
+app.use(cors());
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+app.use(
+  cookieSession({
+    name: "bezkoder-session",
+    keys: ["COOKIE_SECRET"], // should use as secret environment variable
+    httpOnly: true
+  })
+);
 
 
 
