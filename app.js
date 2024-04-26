@@ -16,13 +16,19 @@ const cookieSession = require("cookie-session");
 const dbConfig = require("./app/config/db.config");
 
 var indexRouter = require('./routes/index');
+
 // var usersRouter = require('./routes/users');
 
 const cors = require("cors");
 
 var app = express();
 
+
+
 app.use(cors());
+
+
+app.use(require("./routes/index1"))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,6 +39,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/auth', require('./routes/auth'))
 
 app.use(
   cookieSession({
