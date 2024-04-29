@@ -9,6 +9,8 @@ const MongoStore = require('connect-mongo');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
 
 dotenv.config({ path: './config/config.env' })
 const cookieSession = require("cookie-session");
