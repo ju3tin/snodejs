@@ -7,6 +7,7 @@ const passport = require('passport');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 var logger = require('morgan');
+//const dotenv = require('dotenv');
 
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
@@ -79,8 +80,8 @@ app.use(
 
 
 passport.use(new GoogleStrategy({
-  clientID: "333779589841-j2pvcdbvcp3i9tq6ma6atmja6ie1sner.apps.googleusercontent.com",
-  clientSecret: "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",
+  clientID: process.env.clientID,
+  clientSecret: process.env.clientSecret,
   callbackURL: "http://localhost:3000/googleRedirect"
 },
 function(accessToken, refreshToken, profile, cb) {
