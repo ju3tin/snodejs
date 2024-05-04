@@ -8,6 +8,12 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 var logger = require('morgan');
 //const dotenv = require('dotenv');
+const dbConfig = require("./app/config/db.config");
+
+const db = require("./app/models");
+//const db = require("../models");
+const User = db.user;
+const Role = db.role;
 
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
@@ -19,7 +25,6 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 dotenv.config({ path: './config/config.env' })
 const cookieSession = require("cookie-session");
 
-const dbConfig = require("./app/config/db.config");
 
 var indexRouter = require('./routes/index');
 
@@ -113,8 +118,7 @@ passport.deserializeUser(function(obj, cb) {
   cb(null, obj);
 });
 
-const db = require("./app/models");
-const Role = db.role;
+//const Role = db.role;
 
 db.mongoose
   .connect(`mongodb+srv://12345:pa55word@cluster0.x5l6q.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`, {
@@ -218,7 +222,8 @@ app.get('/googleRedirect', passport.authenticate('google'),(req, res)=>{
       data: user
       }, 'secret', { expiresIn: '1h' });
   res.cookie('jwt', token)
-  res.send({"sd":"asdasd"})
+ // res.send({"sd":"asdasd"})
+ res.redirect("/profile");
 
 })
 app.get('/facebookRedirect', passport.authenticate('facebook', {scope: 'email'}),(req, res)=>{

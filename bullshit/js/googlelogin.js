@@ -18,7 +18,7 @@ if (Object.keys(params).length > 0) {
 
 function trySampleRequest1(){
  // window.location.href("https://apps.emersa.io:8083/auth/google");
-  window.open("https://apps.emersa.io:8083/auth/google", "_self");
+  window.open("https://stingray-app-n7wnk.ondigitalocean.app/auth/google", "_self");
 }
 // If there's an access token, try an API request.
 // Otherwise, start OAuth 2.0 flow.
