@@ -82,7 +82,7 @@ app.use(
 passport.use(new GoogleStrategy({
   clientID: process.env.clientID,
   clientSecret: process.env.clientSecret,
-  callbackURL: "http://localhost:3000/googleRedirect"
+  callbackURL: "https://stingray-app-n7wnk.ondigitalocean.app/googleRedirect"
 },
 function(accessToken, refreshToken, profile, cb) {
     //console.log(accessToken, refreshToken, profile)
